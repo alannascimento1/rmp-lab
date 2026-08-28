@@ -1,0 +1,53 @@
+app/controllers/lab/cache_controller.rb
+  s_b8308784c80c14::t_f802a684f5e222 1-32
+app/views/lab/n_plus_one/show.html.erb
+  s_b8308784c80c14::t_f802a684f5e222 1-14
+app/controllers/lab/ruby_heavy_controller.rb
+  s_b8308784c80c14::t_f802a684f5e222 1-12
+app/views/lab/ruby_heavy/show.html.erb
+  s_b8308784c80c14::t_f802a684f5e222 1-10
+app/controllers/lab/indexing_controller.rb
+  s_b8308784c80c14::t_f802a684f5e222 1-38
+app/views/lab/view_rendering/show.html.erb
+  s_b8308784c80c14::t_f802a684f5e222 1-10
+config/routes.rb
+  s_b8308784c80c14::t_f802a684f5e222 2,4,6-10,12-15
+app/views/lab/cache/show.html.erb
+  s_b8308784c80c14::t_f802a684f5e222 1-18
+app/controllers/lab/counting_controller.rb
+  s_b8308784c80c14::t_f802a684f5e222 1-16
+app/views/lab/home/index.html.erb
+  s_b8308784c80c14::t_f802a684f5e222 1-96
+app/controllers/lab/external_api_controller.rb
+  s_b8308784c80c14::t_f802a684f5e222 1-18
+README.md
+  s_b8308784c80c14::t_f802a684f5e222 31-37,65,72
+app/views/lab/indexing/show.html.erb
+  s_b8308784c80c14::t_f802a684f5e222 1-12
+app/views/lab/view_rendering/fixed.html.erb
+  s_b8308784c80c14::t_f802a684f5e222 1-7
+app/views/layouts/application.html.erb
+  s_b8308784c80c14::t_f802a684f5e222 15-16,20-21,25-26,30-31,35,39-40
+app/controllers/lab/home_controller.rb
+  s_b8308784c80c14::t_f802a684f5e222 1-12
+app/controllers/lab/n_plus_one_controller.rb
+  s_b8308784c80c14::t_f802a684f5e222 1-23
+app/controllers/lab/view_rendering_controller.rb
+  s_b8308784c80c14::t_f802a684f5e222 1-23
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "af9771f2ee3b987657674bacad64ba3e6632bf0f",
+  "prompts": {},
+  "sessions": {
+    "s_b8308784c80c14": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "eec8df1f-c200-496d-8eca-5356eacfc4ba",
+        "model": "claude-fable-5"
+      },
+      "human_author": "alan <nascimentoalankst@gmail.com>"
+    }
+  }
+}
