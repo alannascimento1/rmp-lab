@@ -1,24 +1,18 @@
 Rails.application.routes.draw do
-  root "lab#index"
+  root "lab/home#index"
 
-  # Cada cenario vem em par: a versao lenta e a versao corrigida.
+  # Cada cenario e' um resource: `show` e' a versao lenta, `fixed` a corrigida.
   # Abra as duas com o painel do profiler aberto e compare os numeros.
-  get "n_plus_one",       to: "lab#n_plus_one"
-  get "n_plus_one_fixed", to: "lab#n_plus_one_fixed"
+  namespace :lab do
+    resource :n_plus_one,     only: :show, controller: :n_plus_one     do get :fixed end
+    resource :view_rendering, only: :show, controller: :view_rendering do get :fixed end
+    resource :indexing,       only: :show, controller: :indexing       do get :fixed end
+    resource :cache,          only: :show, controller: :cache          do get :fixed end
 
-  get "slow_view",        to: "lab#slow_view"
-  get "slow_view_fixed",  to: "lab#slow_view_fixed"
-
-  get "missing_index",    to: "lab#missing_index"
-  get "with_index",       to: "lab#with_index"
-
-  get "uncached",         to: "lab#uncached"
-  get "cached",           to: "lab#cached"
-
-  get "counting",         to: "lab#counting"
-
-  get "external_api",     to: "lab#external_api"
-  get "ruby_heavy",       to: "lab#ruby_heavy"
+    resource :counting,     only: :show, controller: :counting
+    resource :external_api, only: :show, controller: :external_api
+    resource :ruby_heavy,   only: :show, controller: :ruby_heavy
+  end
 
   get "up", to: "rails/health#show", as: :rails_health_check
 end

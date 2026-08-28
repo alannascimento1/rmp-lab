@@ -1,6 +1,6 @@
-<h1><%= title %></h1>
+<h1><%= @title %></h1>
 <div class="hint">
-  <%= LabController::LOOKUPS %> consultas <code>Post.where(<%= column %>: ...)</code>, cada uma com um codigo diferente.<br>
+  <%= Lab::IndexingController::LOOKUPS %> consultas <code>Post.where(<%= @column %>: ...)</code>, cada uma com um codigo diferente.<br>
   Abra o painel, clique no numero de queries e compare o tempo total das linhas SQL
   com o da outra pagina. A tabela tem <%= number_with_delimiter(Post.count) %> posts —
   sem indice cada busca le todas as linhas; com indice o banco vai direto ao ponto.

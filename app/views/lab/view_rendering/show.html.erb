@@ -2,9 +2,9 @@
 <div class="hint">
   Cada iteracao chama <code>render partial:</code> separadamente, entao o Rails
   resolve o template <%= @posts.size %> vezes. Na arvore do profiler isso vira
-  uma linha <code>lab/_post_row</code> por item.
+  uma linha <code>lab/shared/_post_row</code> por item.
 </div>
 
 <% @posts.each do |post| %>
-  <%= render partial: "post_row", locals: { post: post } %>
+  <%= render partial: "lab/shared/post_row", locals: { post: post } %>
 <% end %>

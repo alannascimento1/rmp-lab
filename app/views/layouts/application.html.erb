@@ -12,32 +12,32 @@
       <a class="brand" href="/">Laboratório Profiler</a>
       <section>
         <h4>1. N+1</h4>
-        <%= link_to "ruim",  n_plus_one_path,       class: "bad" %>
-        <%= link_to "bom",   n_plus_one_fixed_path, class: "good" %>
+        <%= link_to "ruim",  lab_n_plus_one_path,       class: "bad" %>
+        <%= link_to "bom",   fixed_lab_n_plus_one_path, class: "good" %>
       </section>
       <section>
         <h4>2. Render de view</h4>
-        <%= link_to "ruim",  slow_view_path,       class: "bad" %>
-        <%= link_to "bom",   slow_view_fixed_path, class: "good" %>
+        <%= link_to "ruim",  lab_view_rendering_path,       class: "bad" %>
+        <%= link_to "bom",   fixed_lab_view_rendering_path, class: "good" %>
       </section>
       <section>
         <h4>3. Indice</h4>
-        <%= link_to "ruim",  missing_index_path, class: "bad" %>
-        <%= link_to "bom",   with_index_path,    class: "good" %>
+        <%= link_to "ruim",  lab_indexing_path, class: "bad" %>
+        <%= link_to "bom",   fixed_lab_indexing_path,    class: "good" %>
       </section>
       <section>
         <h4>4. Cache</h4>
-        <%= link_to "ruim",  uncached_path, class: "bad" %>
-        <%= link_to "bom",   cached_path,   class: "good" %>
+        <%= link_to "ruim",  lab_cache_path, class: "bad" %>
+        <%= link_to "bom",   fixed_lab_cache_path,   class: "good" %>
       </section>
       <section>
         <h4>5. Contagem</h4>
-        <%= link_to "count x counter_cache", counting_path %>
+        <%= link_to "count x counter_cache", lab_counting_path %>
       </section>
       <section>
         <h4>6. Fora do SQL</h4>
-        <%= link_to "API externa", external_api_path %>
-        <%= link_to "CPU em Ruby", ruby_heavy_path %>
+        <%= link_to "API externa", lab_external_api_path %>
+        <%= link_to "CPU em Ruby", lab_ruby_heavy_path %>
       </section>
     </nav>
     <main>

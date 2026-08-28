@@ -24,51 +24,51 @@
     <h3>1. N+1</h3>
     <p>Dezenas de <code>SELECT ... WHERE id = ?</code> marcadas <code>dup</code> viram 3 queries com <code>includes</code>.</p>
     <div class="pair">
-      <%= link_to n_plus_one_path, class: "btn bad" do %>ruim <small>~150ms</small><% end %>
+      <%= link_to lab_n_plus_one_path, class: "btn bad" do %>ruim <small>~150ms</small><% end %>
       <span class="arrow">&rarr;</span>
-      <%= link_to n_plus_one_fixed_path, class: "btn good" do %>bom <small>~23ms</small><% end %>
+      <%= link_to fixed_lab_n_plus_one_path, class: "btn good" do %>bom <small>~23ms</small><% end %>
     </div>
   </div>
   <div class="scenario">
     <h3>2. Render de view</h3>
     <p>Uma linha de render por item na arvore vs. uma unica linha.</p>
     <div class="pair">
-      <%= link_to slow_view_path, class: "btn bad" do %>ruim <small>~50ms</small><% end %>
+      <%= link_to lab_view_rendering_path, class: "btn bad" do %>ruim <small>~50ms</small><% end %>
       <span class="arrow">&rarr;</span>
-      <%= link_to slow_view_fixed_path, class: "btn good" do %>bom <small>~25ms</small><% end %>
+      <%= link_to fixed_lab_view_rendering_path, class: "btn good" do %>bom <small>~25ms</small><% end %>
     </div>
   </div>
   <div class="scenario">
     <h3>3. Indice</h3>
     <p>Mesma consulta, mesma quantidade; so' muda o indice.</p>
     <div class="pair">
-      <%= link_to missing_index_path, class: "btn bad" do %>ruim <small>~290ms</small><% end %>
+      <%= link_to lab_indexing_path, class: "btn bad" do %>ruim <small>~290ms</small><% end %>
       <span class="arrow">&rarr;</span>
-      <%= link_to with_index_path, class: "btn good" do %>bom <small>~44ms</small><% end %>
+      <%= link_to fixed_lab_indexing_path, class: "btn good" do %>bom <small>~44ms</small><% end %>
     </div>
   </div>
   <div class="scenario">
     <h3>4. Cache</h3>
     <p>Recarregue a versao com cache: o step continua la', mas sem SQL embaixo.</p>
     <div class="pair">
-      <%= link_to uncached_path, class: "btn bad" do %>ruim <small>~47ms</small><% end %>
+      <%= link_to lab_cache_path, class: "btn bad" do %>ruim <small>~47ms</small><% end %>
       <span class="arrow">&rarr;</span>
-      <%= link_to cached_path, class: "btn good" do %>bom <small>~7ms</small><% end %>
+      <%= link_to fixed_lab_cache_path, class: "btn good" do %>bom <small>~7ms</small><% end %>
     </div>
   </div>
   <div class="scenario">
     <h3>5. Contagem</h3>
     <p><code>posts.count</code> (1 query por usuario) vs <code>counter_cache</code> (zero queries).</p>
     <div class="pair">
-      <%= link_to "count x counter_cache", counting_path, class: "btn" %>
+      <%= link_to "count x counter_cache", lab_counting_path, class: "btn" %>
     </div>
   </div>
   <div class="scenario">
     <h3>6. Fora do SQL</h3>
     <p><code>Rack::MiniProfiler.step</code> nomeia tempo que nao e' SQL nem view. Use <code>?pp=flamegraph</code>.</p>
     <div class="pair">
-      <%= link_to "API externa", external_api_path, class: "btn" %>
-      <%= link_to "CPU em Ruby", ruby_heavy_path, class: "btn" %>
+      <%= link_to "API externa", lab_external_api_path, class: "btn" %>
+      <%= link_to "CPU em Ruby", lab_ruby_heavy_path, class: "btn" %>
     </div>
   </div>
 </div>
@@ -78,12 +78,12 @@
 <div class="chips">
   <div class="chip"><a href="/?pp=help" target="_blank" rel="noopener"><code>?pp=help</code></a><span>lista todos os comandos</span></div>
   <div class="chip"><a href="/?pp=disable" target="_blank" rel="noopener"><code>?pp=disable</code></a> / <a href="/?pp=enable" target="_blank" rel="noopener"><code>?pp=enable</code></a><span>liga e desliga na sessao</span></div>
-  <div class="chip"><a href="/n_plus_one?pp=normal-backtrace" target="_blank" rel="noopener"><code>?pp=normal-backtrace</code></a><span>so' codigo da app (default)</span></div>
-  <div class="chip"><a href="/n_plus_one?pp=full-backtrace" target="_blank" rel="noopener"><code>?pp=full-backtrace</code></a><span>inclui gems e Rails</span></div>
-  <div class="chip"><a href="/n_plus_one?pp=profile-gc" target="_blank" rel="noopener"><code>?pp=profile-gc</code></a><span>alocacao e garbage collection</span></div>
-  <div class="chip"><a href="/n_plus_one?pp=analyze-memory" target="_blank" rel="noopener"><code>?pp=analyze-memory</code></a><span>objetos vivos no processo</span></div>
+  <div class="chip"><a href="/lab/n_plus_one?pp=normal-backtrace" target="_blank" rel="noopener"><code>?pp=normal-backtrace</code></a><span>so' codigo da app (default)</span></div>
+  <div class="chip"><a href="/lab/n_plus_one?pp=full-backtrace" target="_blank" rel="noopener"><code>?pp=full-backtrace</code></a><span>inclui gems e Rails</span></div>
+  <div class="chip"><a href="/lab/n_plus_one?pp=profile-gc" target="_blank" rel="noopener"><code>?pp=profile-gc</code></a><span>alocacao e garbage collection</span></div>
+  <div class="chip"><a href="/lab/n_plus_one?pp=analyze-memory" target="_blank" rel="noopener"><code>?pp=analyze-memory</code></a><span>objetos vivos no processo</span></div>
   <div class="chip"><a href="/?pp=env" target="_blank" rel="noopener"><code>?pp=env</code></a><span>Rack env completo</span></div>
-  <div class="chip"><a href="/ruby_heavy?pp=flamegraph" target="_blank" rel="noopener"><code>?pp=flamegraph</code></a><span>flamegraph (gem <code>stackprof</code>)</span></div>
+  <div class="chip"><a href="/lab/ruby_heavy?pp=flamegraph" target="_blank" rel="noopener"><code>?pp=flamegraph</code></a><span>flamegraph (gem <code>stackprof</code>)</span></div>
 </div>
 
 <h2>Roteiro sugerido</h2>

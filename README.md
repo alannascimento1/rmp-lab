@@ -28,13 +28,13 @@ Abra http://localhost:3000. O badge do profiler aparece no canto superior direit
 
 | # | Rota lenta | Rota corrigida | O que observar |
 |---|---|---|---|
-| 1 | `/n_plus_one` | `/n_plus_one_fixed` | Dezenas de `SELECT ... WHERE id = ?` marcadas como `dup` viram 3 queries com `includes`. ~150ms → ~23ms |
-| 2 | `/slow_view` | `/slow_view_fixed` | Uma linha de render por item na árvore vs. uma única linha. ~50ms → ~25ms |
-| 3 | `/missing_index` | `/with_index` | Mesma consulta, mesma quantidade; só muda o índice. ~290ms → ~44ms |
-| 4 | `/uncached` | `/cached` | Recarregue a versão com cache: o step continua lá, mas sem SQL embaixo. ~47ms → ~7ms |
-| 5 | `/counting` | — | `posts.count` (1 query por usuário) vs `counter_cache` (zero queries) |
-| 6 | `/external_api` | — | `Rack::MiniProfiler.step` nomeia tempo que não é SQL nem view |
-| 6 | `/ruby_heavy` | — | Request lento sem SQL: caso de usar `?pp=flamegraph` |
+| 1 | `/lab/n_plus_one` | `/lab/n_plus_one/fixed` | Dezenas de `SELECT ... WHERE id = ?` marcadas como `dup` viram 3 queries com `includes`. ~150ms → ~23ms |
+| 2 | `/lab/view_rendering` | `/lab/view_rendering/fixed` | Uma linha de render por item na árvore vs. uma única linha. ~50ms → ~25ms |
+| 3 | `/lab/indexing` | `/lab/indexing/fixed` | Mesma consulta, mesma quantidade; só muda o índice. ~290ms → ~44ms |
+| 4 | `/lab/cache` | `/lab/cache/fixed` | Recarregue a versão com cache: o step continua lá, mas sem SQL embaixo. ~47ms → ~7ms |
+| 5 | `/lab/counting` | — | `posts.count` (1 query por usuário) vs `counter_cache` (zero queries) |
+| 6 | `/lab/external_api` | — | `Rack::MiniProfiler.step` nomeia tempo que não é SQL nem view |
+| 6 | `/lab/ruby_heavy` | — | Request lento sem SQL: caso de usar `?pp=flamegraph` |
 
 ## Query strings `?pp=`
 
@@ -62,14 +62,14 @@ em produção, elas expõem o estado interno do processo.
 gem "stackprof"
 ```
 
-Depois `bundle install` e acesse `/ruby_heavy?pp=flamegraph`.
+Depois `bundle install` e acesse `/lab/ruby_heavy?pp=flamegraph`.
 
 ## Arquivos que importam
 
 - `config/initializers/rack_mini_profiler.rb` — configuração comentada opção por opção
 - `app/controllers/application_controller.rb` — o helper `profiler_step`, com guard
   para não quebrar em produção onde a gem não existe
-- `app/controllers/lab_controller.rb` — os seis cenários
+- `app/controllers/lab/` — um controller por cenário (`show` = ruim, `fixed` = bom)
 - `db/seeds.rb` — geração dos dados via `insert_all`
 
 ## Em produção

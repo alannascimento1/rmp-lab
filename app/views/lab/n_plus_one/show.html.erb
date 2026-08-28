@@ -1,7 +1,7 @@
-<h1><%= title %></h1>
+<h1><%= @title %></h1>
 
 <div class="hint">
-  <% if eager %>
+  <% if @eager %>
     Esta action usa <code>includes(:user, comments: :user)</code>.
     O profiler deve mostrar poucas queries, independente de quantos posts aparecem.
   <% else %>
@@ -11,4 +11,4 @@
   <% end %>
 </div>
 
-<%= render partial: "post_card", collection: @posts, as: :post %>
+<%= render partial: "lab/shared/post_card", collection: @posts, as: :post %>
