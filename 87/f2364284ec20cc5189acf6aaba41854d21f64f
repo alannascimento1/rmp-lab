@@ -1,0 +1,43 @@
+app/controllers/lab/post_rows_controller.rb
+  s_b8308784c80c14::t_7421e09930db9f 1-23
+app/views/lab/lookups/index.html.erb
+  s_b8308784c80c14::t_7421e09930db9f 1-12
+app/views/lab/home/index.html.erb
+  s_b8308784c80c14::t_7421e09930db9f 27,29,36,38,45,47,54,56,63,70-71,81-84,86
+app/views/lab/scores/index.html.erb
+  s_b8308784c80c14::t_7421e09930db9f 1-10
+app/controllers/lab/scores_controller.rb
+  s_b8308784c80c14::t_7421e09930db9f 1-12
+README.md
+  s_b8308784c80c14::t_7421e09930db9f 31-37,65,72
+config/routes.rb
+  s_b8308784c80c14::t_7421e09930db9f 4,7-13
+app/controllers/lab/lookups_controller.rb
+  s_b8308784c80c14::t_7421e09930db9f 1-38
+app/views/layouts/application.html.erb
+  s_b8308784c80c14::t_7421e09930db9f 15-16,20-21,25-26,30-31,35,39-40
+app/controllers/lab/quotes_controller.rb
+  s_b8308784c80c14::t_7421e09930db9f 1-18
+app/controllers/lab/rankings_controller.rb
+  s_b8308784c80c14::t_7421e09930db9f 1-32
+app/controllers/lab/post_counts_controller.rb
+  s_b8308784c80c14::t_7421e09930db9f 1-16
+app/controllers/lab/posts_controller.rb
+  s_b8308784c80c14::t_7421e09930db9f 1-23
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "87f2364284ec20cc5189acf6aaba41854d21f64f",
+  "prompts": {},
+  "sessions": {
+    "s_b8308784c80c14": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "eec8df1f-c200-496d-8eca-5356eacfc4ba",
+        "model": "claude-fable-5"
+      },
+      "human_author": "alan <nascimentoalankst@gmail.com>"
+    }
+  }
+}
