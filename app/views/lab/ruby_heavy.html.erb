@@ -1,0 +1,10 @@
+<h1>CPU em Ruby puro</h1>
+<div class="hint">
+  Duas queries rapidas e um request lento. O painel mostra que o tempo esta num step
+  de Ruby, mas nao diz <em>qual linha</em>. Para descobrir isso, adicione a gem
+  <code>stackprof</code> ao Gemfile e recarregue com
+  <code><%= ruby_heavy_path %>?pp=flamegraph</code>.
+  <br>Tente tambem <code>?pp=profile-gc</code> para ver quantos objetos foram alocados.
+</div>
+
+<p><strong><%= @scores.size %></strong> scores calculados. Soma: <strong><%= @scores.sum %></strong>.</p>

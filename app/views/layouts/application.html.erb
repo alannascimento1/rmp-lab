@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Laboratório Profiler</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+  </head>
+  <body>
+    <nav>
+      <a class="brand" href="/">Laboratório Profiler</a>
+      <section>
+        <h4>1. N+1</h4>
+        <%= link_to "ruim",  n_plus_one_path,       class: "bad" %>
+        <%= link_to "bom",   n_plus_one_fixed_path, class: "good" %>
+      </section>
+      <section>
+        <h4>2. Render de view</h4>
+        <%= link_to "ruim",  slow_view_path,       class: "bad" %>
+        <%= link_to "bom",   slow_view_fixed_path, class: "good" %>
+      </section>
+      <section>
+        <h4>3. Indice</h4>
+        <%= link_to "ruim",  missing_index_path, class: "bad" %>
+        <%= link_to "bom",   with_index_path,    class: "good" %>
+      </section>
+      <section>
+        <h4>4. Cache</h4>
+        <%= link_to "ruim",  uncached_path, class: "bad" %>
+        <%= link_to "bom",   cached_path,   class: "good" %>
+      </section>
+      <section>
+        <h4>5. Contagem</h4>
+        <%= link_to "count x counter_cache", counting_path %>
+      </section>
+      <section>
+        <h4>6. Fora do SQL</h4>
+        <%= link_to "API externa", external_api_path %>
+        <%= link_to "CPU em Ruby", ruby_heavy_path %>
+      </section>
+    </nav>
+    <main>
+      <%= yield %>
+    </main>
+  </body>
+</html>

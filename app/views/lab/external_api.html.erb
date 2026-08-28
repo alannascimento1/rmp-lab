@@ -1,0 +1,13 @@
+<h1>Tempo fora do banco</h1>
+<div class="hint">
+  Nenhuma das chamadas abaixo e' SQL. Sem <code>Rack::MiniProfiler.step</code> elas
+  apareceriam apenas como tempo nao explicado dentro da action.
+  Envolvidas em steps, viram linhas nomeadas na arvore com os ~300ms e ~120ms.
+  <br>Veja <code>profiler_step</code> em <code>app/controllers/application_controller.rb</code>.
+</div>
+
+<table>
+  <tr><th>chamada</th><th>resposta</th></tr>
+  <tr><td>GET /cotacoes</td><td><%= @payload.inspect %></td></tr>
+  <tr><td>POST /eventos</td><td><%= @second.inspect %></td></tr>
+</table>

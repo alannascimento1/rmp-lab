@@ -1,0 +1,17 @@
+<h1>count x counter_cache</h1>
+<div class="hint">
+  As duas somas dao o mesmo numero. Na arvore do profiler, o primeiro step tem
+  <%= @users.size %> queries <code>SELECT COUNT(*)</code> aninhadas; o segundo nao tem nenhuma,
+  porque le a coluna <code>users.posts_count</code> mantida pelo <code>counter_cache</code>.
+</div>
+
+<table>
+  <tr><th>estrategia</th><th>total de posts</th></tr>
+  <tr><td><code>posts.count</code> (1 query por usuario)</td><td class="big"><%= @with_count %></td></tr>
+  <tr><td><code>posts_count</code> (counter_cache)</td><td class="big"><%= @with_counter_cache %></td></tr>
+</table>
+
+<p class="meta">
+  Lembrete: <code>.count</code> sempre consulta o banco; <code>.size</code> usa o que ja' esta
+  carregado se a associacao foi carregada, senao consulta; <code>.length</code> forca carregar tudo na memoria.
+</p>

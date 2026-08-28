@@ -1,0 +1,14 @@
+<h1><%= title %></h1>
+
+<div class="hint">
+  <% if eager %>
+    Esta action usa <code>includes(:user, comments: :user)</code>.
+    O profiler deve mostrar poucas queries, independente de quantos posts aparecem.
+  <% else %>
+    Esta action carrega so' os posts. Cada <code>post.user.name</code> e
+    <code>post.comments</code> dispara uma query nova dentro da view —
+    e' por isso que o painel enche de <code>SELECT ... WHERE id = ?</code> repetidos.
+  <% end %>
+</div>
+
+<%= render partial: "post_card", collection: @posts, as: :post %>

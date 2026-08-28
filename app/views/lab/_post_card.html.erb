@@ -1,0 +1,9 @@
+<div class="card">
+  <h3><%= post.title %></h3>
+  <div class="meta">
+    por <%= post.user.name %> ·
+    <%= post.comments.size %> comentarios ·
+    ultimos:
+    <%= post.comments.first(2).map { |c| c.user.name }.join(", ").presence || "nenhum" %>
+  </div>
+</div>
