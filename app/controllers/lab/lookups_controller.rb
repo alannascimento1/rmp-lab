@@ -1,10 +1,10 @@
 module Lab
   # Cenario 3: indice
-  class IndexingController < ApplicationController
+  class LookupsController < ApplicationController
     LOOKUPS = 40
 
     # RUIM: legacy_code nao tem indice -> cada busca varre a tabela inteira.
-    def show
+    def index
       @title = "Busca SEM indice"
       @column = "legacy_code"
       @posts = lookup(@column)
@@ -15,7 +15,7 @@ module Lab
       @title = "Busca COM indice"
       @column = "code"
       @posts = lookup(@column)
-      render :show
+      render :index
     end
 
     private

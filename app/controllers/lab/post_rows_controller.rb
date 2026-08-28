@@ -1,11 +1,11 @@
 module Lab
   # Cenario 2: render de view
-  class ViewRenderingController < ApplicationController
+  class PostRowsController < ApplicationController
     PAGE_SIZE = 200
 
     # RUIM: render dentro de loop -> o Rails resolve o template a cada iteracao.
     # O profiler mostra uma linha "Rendering: lab/shared/_post_row" por item.
-    def show
+    def index
       @posts = posts
     end
 

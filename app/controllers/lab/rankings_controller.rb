@@ -1,8 +1,8 @@
 module Lab
   # Cenario 4: cache de fragmento
-  class CacheController < ApplicationController
+  class RankingsController < ApplicationController
     # RUIM: agrega no banco a cada request.
-    def show
+    def index
       @title = "Ranking sem cache"
       @cached = false
       @rows = profiler_step("agregacao no banco") { top_authors }
@@ -16,7 +16,7 @@ module Lab
       @rows = profiler_step("Rails.cache.fetch(top_authors)") do
         Rails.cache.fetch("lab/top_authors", expires_in: 5.minutes) { top_authors }
       end
-      render :show
+      render :index
     end
 
     private
