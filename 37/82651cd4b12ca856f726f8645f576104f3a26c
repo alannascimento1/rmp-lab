@@ -1,0 +1,181 @@
+public/400.html
+  s_55c5ddbdf57f53::t_aa2dfdced0cea6 1-135
+config/environments/test.rb
+  s_55c5ddbdf57f53::t_2b6c40ec660a28 1-42
+Rakefile
+  s_55c5ddbdf57f53::t_aa5fb0fd21e544 1-6
+README.md
+  s_78750594826d26::t_1706d69a26f8c5 1-86
+app/models/comment.rb
+  s_55c5ddbdf57f53::t_812a7464c0f89c 1-4
+public/422.html
+  s_55c5ddbdf57f53::t_895ba763b6602a 1-135
+app/views/lab/slow_view_fixed.html.erb
+  s_55c5ddbdf57f53::t_fa9c5fc86ce2b4 1-7
+app/models/tag.rb
+  s_55c5ddbdf57f53::t_d6ad04ce76e8e2 1-4
+app/models/user.rb
+  s_55c5ddbdf57f53::t_9df016249aedf0 1-13
+Gemfile.lock
+  s_55c5ddbdf57f53::t_dc7afa16d48f96 1-434
+bin/thrust
+  s_55c5ddbdf57f53::t_0969e0517e8811 1-5
+config/initializers/filter_parameter_logging.rb
+  s_55c5ddbdf57f53::t_edcce4d8086345 1-8
+app/views/lab/external_api.html.erb
+  s_55c5ddbdf57f53::t_ab02148c939bd9 1-13
+app/views/lab/index.html.erb
+  s_b8308784c80c14::t_8866f1c64d045b 1-96
+app/controllers/application_controller.rb
+  s_55c5ddbdf57f53::t_a21ae9da3c7787 1-18
+config/cable.yml
+  s_78750594826d26::t_6b2fca30ac0ea2 1-10
+app/jobs/application_job.rb
+  s_55c5ddbdf57f53::t_ffdbee3138352c 1-7
+config/ci.rb
+  s_55c5ddbdf57f53::t_a612e52008e49d 1-20
+config/locales/en.yml
+  s_55c5ddbdf57f53::t_3ce5a68849c82a 1-31
+bin/brakeman
+  s_55c5ddbdf57f53::t_93f9260e46cc98 1-7
+app/helpers/application_helper.rb
+  s_55c5ddbdf57f53::t_ba9ef74faac46e 1-2
+bin/rubocop
+  s_55c5ddbdf57f53::t_dcf608f3137efd 1-8
+app/assets/stylesheets/application.css
+  s_78750594826d26::t_0a078ce027b920 1-70
+db/schema.rb
+  s_55c5ddbdf57f53::t_79ab828f35d800 1-67
+bin/setup
+  s_55c5ddbdf57f53::t_7e1faeefed9012 1-35
+app/views/pwa/manifest.json.erb
+  s_78750594826d26::t_9262278f78e5bc 1-22
+app/views/lab/_post_card.html.erb
+  s_55c5ddbdf57f53::t_de3cdb0abc6e1c 1-9
+db/seeds.rb
+  s_55c5ddbdf57f53::t_99abb17bc53c45 1-88
+config.ru
+  s_55c5ddbdf57f53::t_73226199659680 1-6
+config/routes.rb
+  s_55c5ddbdf57f53::t_d754b140a9cab0 1-24
+config/initializers/rack_mini_profiler.rb
+  s_55c5ddbdf57f53::t_7d06e45a117904 1-53
+public/500.html
+  s_55c5ddbdf57f53::t_3fef58de94cebe 1-135
+config/application.rb
+  s_78750594826d26::t_09e2c0f93361c2 1-42
+bin/rails
+  s_55c5ddbdf57f53::t_febf51b2423ce6 1-4
+config/initializers/assets.rb
+  s_55c5ddbdf57f53::t_d335cb850eb808 1-7
+app/views/lab/ranking.html.erb
+  s_55c5ddbdf57f53::t_87973896b723f0 1-18
+bin/bundler-audit
+  s_55c5ddbdf57f53::t_5fdd179138eaba 1-6
+.ruby-version
+  s_55c5ddbdf57f53::t_88405ac7e80f3b 1
+db/migrate/20260101000001_create_lab_schema.rb
+  s_55c5ddbdf57f53::t_de4fe7d3907af9 1-45
+config/database.yml
+  s_55c5ddbdf57f53::t_1d3251163cd93d 1-31
+config/environments/production.rb
+  s_55c5ddbdf57f53::t_39fb2b9a9d3f0b 1-70
+config/importmap.rb
+  s_55c5ddbdf57f53::t_917595c8631410 1-3
+app/views/lab/_post_row.html.erb
+  s_55c5ddbdf57f53::t_1585873b9929cd 1
+config/boot.rb
+  s_55c5ddbdf57f53::t_5df46c73a30d4c 1-4
+config/bundler-audit.yml
+  s_55c5ddbdf57f53::t_dcd18316a99a41 1-5
+app/views/layouts/application.html.erb
+  s_b8308784c80c14::t_0af0ddff4d85b0 1-47
+bin/rake
+  s_55c5ddbdf57f53::t_80cde29d6661b1 1-4
+.rubocop.yml
+  s_55c5ddbdf57f53::t_4c0e3929f79e96 1-8
+app/views/lab/slow_view.html.erb
+  s_55c5ddbdf57f53::t_9c1e2a641b869d 1-10
+public/404.html
+  s_55c5ddbdf57f53::t_1a97cbac39535c 1-135
+config/credentials.yml.enc
+  s_55c5ddbdf57f53::t_f12884acce13be 1
+app/views/lab/counting.html.erb
+  s_55c5ddbdf57f53::t_722264a689d1e5 1-17
+config/initializers/content_security_policy.rb
+  s_55c5ddbdf57f53::t_7b896130f6e441 1-29
+public/icon.svg
+  s_55c5ddbdf57f53::t_4edbfb27e05d00 1-3
+bin/dev
+  s_55c5ddbdf57f53::t_7688bd6097d092 1-2
+public/406-unsupported-browser.html
+  s_55c5ddbdf57f53::t_6761451ad3ac4f 1-135
+app/controllers/lab_controller.rb
+  s_55c5ddbdf57f53::t_d8d36a4c5a5e64 1-150
+bin/importmap
+  s_55c5ddbdf57f53::t_3ecce833710bba 1-4
+app/javascript/application.js
+  s_55c5ddbdf57f53::t_f56b4d2dd002a2 1
+Gemfile
+  s_55c5ddbdf57f53::t_c0464d78476a81 1-52
+app/views/lab/posts_list.html.erb
+  s_55c5ddbdf57f53::t_3e5e2a042520e3 1-14
+config/puma.rb
+  s_55c5ddbdf57f53::t_9bd44766064ebc 1-39
+app/views/lab/ruby_heavy.html.erb
+  s_55c5ddbdf57f53::t_bfdadf3f530df5 1-10
+config/environments/development.rb
+  s_55c5ddbdf57f53::t_7cd715acb90353 1-66
+.gitignore
+  s_b8308784c80c14::t_fa368810f88f74 1-15
+bin/ci
+  s_55c5ddbdf57f53::t_96756e1ff0871b 1-6
+app/views/lab/index_compare.html.erb
+  s_55c5ddbdf57f53::t_def20a48214d89 1-12
+app/views/pwa/service-worker.js
+  s_55c5ddbdf57f53::t_439aa8c21e3d43 1-26
+app/models/post.rb
+  s_55c5ddbdf57f53::t_042a792f61defc 1-14
+config/initializers/inflections.rb
+  s_55c5ddbdf57f53::t_3a7700ecd8a769 1-16
+app/models/post_tag.rb
+  s_55c5ddbdf57f53::t_5879319756c4b7 1-4
+public/robots.txt
+  s_55c5ddbdf57f53::t_ccb0b7d0c099e7 1
+app/models/application_record.rb
+  s_55c5ddbdf57f53::t_e9eedd200e445d 1-3
+config/environment.rb
+  s_55c5ddbdf57f53::t_b51e8c2bc058dc 1-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "3782651cd4b12ca856f726f8645f576104f3a26c",
+  "prompts": {},
+  "sessions": {
+    "s_55c5ddbdf57f53": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7ea7dfd9-b712-48c0-a9cf-90876ace33b1",
+        "model": "claude-opus-5"
+      },
+      "human_author": "alan <nascimentoalankst@gmail.com>"
+    },
+    "s_78750594826d26": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8c2f3422-c40f-4851-8044-3426c55243ed",
+        "model": "claude-fable-5"
+      },
+      "human_author": "alan <nascimentoalankst@gmail.com>"
+    },
+    "s_b8308784c80c14": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "eec8df1f-c200-496d-8eca-5356eacfc4ba",
+        "model": "claude-fable-5"
+      },
+      "human_author": "alan <nascimentoalankst@gmail.com>"
+    }
+  }
+}
