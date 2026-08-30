@@ -6,4 +6,7 @@
   sem indice cada busca le todas as linhas; com indice o banco vai direto ao ponto.
 </div>
 
-<%= render "lab/lookups/results" %>
+<p><strong><%= @posts.size %></strong> resultado(s).</p>
+<% @posts.first(10).each do |post| %>
+  <div class="row"><%= post.title %></div>
+<% end %>
