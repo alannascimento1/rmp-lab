@@ -22,7 +22,7 @@
 <div class="scenarios">
   <div class="scenario">
     <h3>1. N+1</h3>
-    <p>Dezenas de <code>SELECT ... WHERE id = ?</code> marcadas <code>dup</code> viram 3 queries com <code>includes</code>.</p>
+    <p>Dezenas de <code>SELECT ... WHERE id = ?</code> duplicados viram 3 queries com <code>includes</code>.</p>
     <div class="pair">
       <%= link_to lab_posts_path, class: "btn bad" do %>ruim <small>~75ms</small><% end %>
       <span class="arrow">&rarr;</span>
