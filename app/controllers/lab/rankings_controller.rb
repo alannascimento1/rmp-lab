@@ -3,8 +3,6 @@ module Lab
   class RankingsController < ApplicationController
     # RUIM: agrega no banco a cada request.
     def index
-      @title = "Ranking sem cache"
-      @cached = false
       @rows = profiler_step("agregacao no banco") { top_authors }
     end
 

@@ -1,0 +1,9 @@
+<h1>Ranking com cache</h1>
+<div class="hint">
+  O resultado fica em <code>Rails.cache</code> por 5 minutos.
+  Recarregue: no segundo acesso a linha do step continua la', mas com quase 0ms
+  e sem nenhuma query embaixo dela.
+  <br><em>Cache em dev so' funciona com <code>bin/rails dev:cache</code> ligado.</em>
+</div>
+
+<%= render "lab/rankings/table" %>

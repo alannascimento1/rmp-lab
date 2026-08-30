@@ -1,18 +1,6 @@
-<h1><%= @title %></h1>
+<h1>Ranking sem cache</h1>
 <div class="hint">
-  <% if @cached %>
-    O resultado fica em <code>Rails.cache</code> por 5 minutos.
-    Recarregue: no segundo acesso a linha do step continua la', mas com quase 0ms
-    e sem nenhuma query embaixo dela.
-    <br><em>Cache em dev so' funciona com <code>bin/rails dev:cache</code> ligado.</em>
-  <% else %>
-    Agregacao com JOIN e GROUP BY rodando do zero em toda request.
-  <% end %>
+  Agregacao com JOIN e GROUP BY rodando do zero em toda request.
 </div>
 
-<table>
-  <tr><th>autor</th><th>comentarios recebidos</th></tr>
-  <% @rows.each do |name, total| %>
-    <tr><td><%= name %></td><td><%= total %></td></tr>
-  <% end %>
-</table>
+<%= render "lab/rankings/table" %>

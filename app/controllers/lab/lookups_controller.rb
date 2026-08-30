@@ -5,9 +5,7 @@ module Lab
 
     # RUIM: legacy_code nao tem indice -> cada busca varre a tabela inteira.
     def index
-      @title = "Busca SEM indice"
-      @column = "legacy_code"
-      @posts = lookup(@column)
+      @posts = lookup("legacy_code")
     end
 
     private

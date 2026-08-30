@@ -3,10 +3,7 @@ module Lab
     # BOM: mesma consulta, mesma quantidade, coluna indexada.
     class FixedController < LookupsController
       def index
-        @title = "Busca COM indice"
-        @column = "code"
-        @posts = lookup(@column)
-        render "lab/lookups/index"
+        @posts = lookup("code")
       end
     end
   end

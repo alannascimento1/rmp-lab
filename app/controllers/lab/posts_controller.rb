@@ -7,8 +7,6 @@ module Lab
     # No painel do profiler voce ve dezenas de linhas SQL identicas empilhadas,
     # e o contador de queries do badge explode.
     def index
-      @title = "N+1 (ruim)"
-      @eager = false
       @posts = Post.recent.limit(PAGE_SIZE)
     end
   end
