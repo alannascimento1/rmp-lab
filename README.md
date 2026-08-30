@@ -22,9 +22,9 @@ Abra http://localhost:3000. O badge do profiler aparece no canto superior direit
   cada step customizado. A indentação mostra o aninhamento.
 - O número ao lado de cada linha (`3 sql`) abre o SQL executado ali, com tempo
   individual e backtrace — é onde você descobre **qual linha de código** disparou a query.
-- Queries idênticas repetidas ganham a etiqueta `DUPLICATE` (ou `[CACHE]`, quando o
-  query cache do Active Record respondeu da memória) e um `!` vermelho no contador —
-  sinal clássico de N+1.
+- Queries idênticas repetidas aparecem empilhadas na lista de SQL; as respondidas pelo
+  query cache do Active Record vêm com a etiqueta `[CACHE]`, e o rodapé mostra o total
+  com a contagem de cached — sinal clássico de N+1.
 
 ## Os cenários
 
