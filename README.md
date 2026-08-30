@@ -28,10 +28,10 @@ Abra http://localhost:3000. O badge do profiler aparece no canto superior direit
 
 | # | Rota lenta | Rota corrigida | O que observar |
 |---|---|---|---|
-| 1 | `/lab/posts` | `/lab/posts/fixed` | Dezenas de `SELECT ... WHERE id = ?` marcadas como `dup` viram 3 queries com `includes`. ~150ms → ~23ms |
-| 2 | `/lab/post_rows` | `/lab/post_rows/fixed` | Uma linha de render por item na árvore vs. uma única linha. ~50ms → ~25ms |
-| 3 | `/lab/lookups` | `/lab/lookups/fixed` | Mesma consulta, mesma quantidade; só muda o índice. ~290ms → ~44ms |
-| 4 | `/lab/rankings` | `/lab/rankings/fixed` | Recarregue a versão com cache: o step continua lá, mas sem SQL embaixo. ~47ms → ~7ms |
+| 1 | `/lab/posts` | `/lab/posts/fixed` | Dezenas de `SELECT ... WHERE id = ?` marcadas como `dup` viram 3 queries com `includes`. ~75ms → ~15ms |
+| 2 | `/lab/post_rows` | `/lab/post_rows/fixed` | Uma linha de render por item na árvore vs. uma única linha. ~27ms → ~14ms |
+| 3 | `/lab/lookups` | `/lab/lookups/fixed` | Mesma consulta, mesma quantidade; só muda o índice. ~120ms → ~23ms |
+| 4 | `/lab/rankings` | `/lab/rankings/fixed` | Recarregue a versão com cache: o step continua lá, mas sem SQL embaixo. ~20ms → ~4ms |
 | 5 | `/lab/post_counts` | — | `posts.count` (1 query por usuário) vs `counter_cache` (zero queries) |
 | 6 | `/lab/quotes` | — | `Rack::MiniProfiler.step` nomeia tempo que não é SQL nem view |
 | 6 | `/lab/scores` | — | Request lento sem SQL: caso de usar `?pp=flamegraph` |
