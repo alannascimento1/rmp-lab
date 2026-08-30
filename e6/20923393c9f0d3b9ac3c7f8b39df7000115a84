@@ -1,0 +1,37 @@
+app/controllers/lab/lookups/fixed_controller.rb
+  s_93ea2ba7d2a721::t_fe940360efedca 6
+app/controllers/lab/lookups_controller.rb
+  s_93ea2ba7d2a721::t_f41b7b6bc003fe 8
+app/views/lab/lookups/_results.html.erb
+  s_93ea2ba7d2a721::t_814cc4b5d150db 1-4
+app/views/lab/lookups/fixed/index.html.erb
+  s_93ea2ba7d2a721::t_86968c669b2836 1-9
+app/views/lab/lookups/index.html.erb
+  s_93ea2ba7d2a721::t_c04a180e6650f5 1,3,9
+app/views/lab/posts/fixed/index.html.erb
+  s_93ea2ba7d2a721::t_8c2b298a57c87c 1-8
+app/views/lab/posts/index.html.erb
+  s_93ea2ba7d2a721::t_105c3287254be3 1,4-6
+app/views/lab/rankings/_table.html.erb
+  s_93ea2ba7d2a721::t_1c257f5dc1999c 1-6
+app/views/lab/rankings/fixed/index.html.erb
+  s_93ea2ba7d2a721::t_a4855802703ee3 1-9
+app/views/lab/rankings/index.html.erb
+  s_93ea2ba7d2a721::t_cc407e113e251e 1,3,6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "e620923393c9f0d3b9ac3c7f8b39df7000115a84",
+  "prompts": {},
+  "sessions": {
+    "s_93ea2ba7d2a721": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2568658a-6053-4988-9865-2dd6fa8a2213",
+        "model": "claude-fable-5"
+      },
+      "human_author": "alan <nascimentoalankst@gmail.com>"
+    }
+  }
+}
