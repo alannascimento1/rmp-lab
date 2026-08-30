@@ -1,0 +1,35 @@
+app/controllers/lab/post_rows_controller.rb
+  s_93ea2ba7d2a721::t_5d6e19cec1646c 9
+app/controllers/lab/lookups/fixed_controller.rb
+  s_93ea2ba7d2a721::t_5d6e19cec1646c 1-13
+app/controllers/lab/rankings/fixed_controller.rb
+  s_93ea2ba7d2a721::t_5d6e19cec1646c 1-16
+app/controllers/lab/posts/fixed_controller.rb
+  s_93ea2ba7d2a721::t_5d6e19cec1646c 1-14
+app/controllers/lab/post_rows/fixed_controller.rb
+  s_93ea2ba7d2a721::t_5d6e19cec1646c 1-10
+config/routes.rb
+  s_93ea2ba7d2a721::t_5d6e19cec1646c 4-6,8-17
+README.md
+  s_93ea2ba7d2a721::t_70e41cc717c1df 74
+app/views/lab/home/index.html.erb
+  s_93ea2ba7d2a721::t_da40f4e6dd1abb 29,38,47,56
+app/views/layouts/application.html.erb
+  s_93ea2ba7d2a721::t_6f2e38c373330a 16,21,26,31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "337dbd40e4173098813413f9b93be6897ee88765",
+  "prompts": {},
+  "sessions": {
+    "s_93ea2ba7d2a721": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2568658a-6053-4988-9865-2dd6fa8a2213",
+        "model": "unknown"
+      },
+      "human_author": "alan <nascimentoalankst@gmail.com>"
+    }
+  }
+}
