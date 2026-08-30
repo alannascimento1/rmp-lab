@@ -28,7 +28,7 @@ Rack::MiniProfiler.config.tap do |config|
 
   # Qualquer query/step acima deste limite ganha backtrace clicavel no painel.
   # Baixe para 0 se quiser backtrace de tudo (fica verboso).
-  config.backtrace_threshold_ms = 3
+  config.backtrace_threshold_ms = 0
 
   # Mostra tambem as queries que o Rails faz para descobrir colunas/schema.
   # Default e' true (esconde). Deixar false ajuda a entender o boot da request.
