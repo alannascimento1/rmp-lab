@@ -1,0 +1,25 @@
+app/views/lab/lookups/fixed/index.html.erb
+  s_93ea2ba7d2a721::t_be3999e4f97262 9-12
+app/views/lab/lookups/index.html.erb
+  s_93ea2ba7d2a721::t_e6b2434034529c 9-12
+app/views/lab/rankings/fixed/index.html.erb
+  s_93ea2ba7d2a721::t_2da69cd8a881a7 9-14
+app/views/lab/rankings/index.html.erb
+  s_93ea2ba7d2a721::t_95319de1aeb06f 6-11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "08ddffcdb3024a595e23cbd9bde32e6a396d5576",
+  "prompts": {},
+  "sessions": {
+    "s_93ea2ba7d2a721": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2568658a-6053-4988-9865-2dd6fa8a2213",
+        "model": "claude-fable-5"
+      },
+      "human_author": "alan <nascimentoalankst@gmail.com>"
+    }
+  }
+}
