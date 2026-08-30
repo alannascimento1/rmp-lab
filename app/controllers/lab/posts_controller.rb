@@ -11,13 +11,5 @@ module Lab
       @eager = false
       @posts = Post.recent.limit(PAGE_SIZE)
     end
-
-    # BOM: includes carrega autores e comentarios em 3 queries no total.
-    def fixed
-      @title = "N+1 resolvido com includes"
-      @eager = true
-      @posts = Post.recent.limit(PAGE_SIZE).includes(:user, comments: :user)
-      render :index
-    end
   end
 end

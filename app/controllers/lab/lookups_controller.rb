@@ -10,14 +10,6 @@ module Lab
       @posts = lookup(@column)
     end
 
-    # BOM: mesma consulta, mesma quantidade, coluna indexada.
-    def fixed
-      @title = "Busca COM indice"
-      @column = "code"
-      @posts = lookup(@column)
-      render :index
-    end
-
     private
 
     def lookup(column)

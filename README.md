@@ -71,7 +71,7 @@ Depois `bundle install` e acesse `/lab/scores?pp=flamegraph`.
 - `config/initializers/rack_mini_profiler.rb` — configuração comentada opção por opção
 - `app/controllers/application_controller.rb` — o helper `profiler_step`, com guard
   para não quebrar em produção onde a gem não existe
-- `app/controllers/lab/` — um controller por cenário (`index` = ruim, `fixed` = bom)
+- `app/controllers/lab/` — um controller por página: `<recurso>` é a versão ruim, `<recurso>/fixed` a corrigida (todos só com `index`)
 - `db/seeds.rb` — geração dos dados via `insert_all`
 
 ## Em produção
