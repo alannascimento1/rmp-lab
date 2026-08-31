@@ -1,7 +1,7 @@
 module Lab
   module Lookups
     # BOM: mesma consulta, mesma quantidade, coluna indexada.
-    class FixedController < LookupsController
+    class FastController < SlowController
       def index
         @posts = lookup("code")
       end

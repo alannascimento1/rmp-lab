@@ -1,6 +1,6 @@
-<h1>Busca SEM indice</h1>
+<h1>Busca COM indice</h1>
 <div class="hint">
-  <%= Lab::LookupsController::LOOKUPS %> consultas <code>Post.where(legacy_code: ...)</code>, cada uma com um codigo diferente.<br>
+  <%= Lab::Lookups::SlowController::LOOKUPS %> consultas <code>Post.where(code: ...)</code>, cada uma com um codigo diferente.<br>
   Abra o painel, clique no numero de queries e compare o tempo total das linhas SQL
   com o da outra pagina. A tabela tem <%= number_with_delimiter(Post.count) %> posts —
   sem indice cada busca le todas as linhas; com indice o banco vai direto ao ponto.

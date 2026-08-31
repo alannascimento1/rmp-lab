@@ -30,10 +30,10 @@ Abra http://localhost:3000. O badge do profiler aparece no canto superior direit
 
 | # | Rota lenta | Rota corrigida | O que observar |
 |---|---|---|---|
-| 1 | `/lab/posts` | `/lab/posts/fixed` | Dezenas de `SELECT ... WHERE id = ?` duplicados viram 3 queries com `includes`. ~75ms → ~15ms |
-| 2 | `/lab/post_rows` | `/lab/post_rows/fixed` | Uma linha de render por item na árvore vs. uma única linha. ~27ms → ~14ms |
-| 3 | `/lab/lookups` | `/lab/lookups/fixed` | Mesma consulta, mesma quantidade; só muda o índice. ~120ms → ~23ms |
-| 4 | `/lab/rankings` | `/lab/rankings/fixed` | Recarregue a versão com cache: o step continua lá, mas sem SQL embaixo. ~20ms → ~4ms |
+| 1 | `/lab/posts/slow` | `/lab/posts/fast` | Dezenas de `SELECT ... WHERE id = ?` duplicados viram 3 queries com `includes`. ~75ms → ~15ms |
+| 2 | `/lab/post_rows/slow` | `/lab/post_rows/fast` | Uma linha de render por item na árvore vs. uma única linha. ~27ms → ~14ms |
+| 3 | `/lab/lookups/slow` | `/lab/lookups/fast` | Mesma consulta, mesma quantidade; só muda o índice. ~120ms → ~23ms |
+| 4 | `/lab/rankings/slow` | `/lab/rankings/fast` | Recarregue a versão com cache: o step continua lá, mas sem SQL embaixo. ~20ms → ~4ms |
 | 5 | `/lab/post_counts` | — | `posts.count` (1 query por usuário) vs `counter_cache` (zero queries) |
 | 6 | `/lab/quotes` | — | `Rack::MiniProfiler.step` nomeia tempo que não é SQL nem view |
 | 6 | `/lab/scores` | — | Request lento sem SQL: caso de usar `?pp=flamegraph` |
@@ -71,7 +71,7 @@ Depois `bundle install` e acesse `/lab/scores?pp=flamegraph`.
 - `config/initializers/rack_mini_profiler.rb` — configuração comentada opção por opção
 - `app/controllers/application_controller.rb` — o helper `profiler_step`, com guard
   para não quebrar em produção onde a gem não existe
-- `app/controllers/lab/` — um controller por página: `<recurso>` é a versão ruim, `<recurso>/fixed` a corrigida (todos só com `index`)
+- `app/controllers/lab/` — controllers em pares por cenário: `<recurso>/slow` (lento) e `<recurso>/fast` (corrigido), todos só com `index`
 - `db/seeds.rb` — geração dos dados via `insert_all`
 
 ## Em produção
