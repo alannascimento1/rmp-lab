@@ -874,7 +874,7 @@ document.addEventListener("DOMContentLoaded", function () {
   head.innerHTML = '<strong>Cópia anotada</strong> — mesma medição de <code>/lab/posts/slow</code> (129,6 ms, 121 consultas), ' +
     'com setas explicando o painel. O original, sem marcações, é <code>amostra-profiler-lab_posts_slow-129.6ms.html</code>. ' +
     'Explicação completa no artigo <a href="./anatomia-n-mais-um.html" target="_blank" rel="noopener">Anatomia de um N+1</a>.' +
-    '<span class="sec">As anotações seguem a ordem da página, de cima para baixo. <b style="color:#2ecc9a">Clique num cartão para isolar só ele</b> — clique nele de novo, em qualquer lugar da página ou aperte Esc para ver todos.</span>';
+    '<span class="sec"><b style="color:#2ecc9a">Clique em qualquer trecho destacado em verde</b> para ver a explicação dele. Clique de novo, em qualquer lugar da página ou aperte Esc para fechar. São 20 trechos anotados, do topo até o rodapé.</span>';
   document.body.insertBefore(head, document.body.firstChild);
 
   var rows  = document.querySelectorAll(".profiler-timings tbody tr");
@@ -944,8 +944,14 @@ document.addEventListener("DOMContentLoaded", function () {
   var boxes = items.map(function (it, i) {
     var b = document.createElement("div"); b.className = "anot-box";
     b.innerHTML = "<b><span class='n'>" + (i + 1) + "</span>" + it.t + "</b>" + it.d;
-    b.addEventListener("click", function (e) { e.stopPropagation(); focus = (focus === i ? null : i); place(); });
+    b.addEventListener("click", function (e) { e.stopPropagation(); focus = null; place(); });
     b.style.cursor = "pointer";
+    it.el.style.cursor = "pointer";
+    it.el.addEventListener("click", function (e) {
+      e.stopPropagation();
+      if (it.el.tagName === "A" || it.el.closest("a")) e.preventDefault();
+      focus = (focus === i ? null : i); place();
+    });
     layer.appendChild(b); it.el.classList.add("anot-hi"); return b;
   });
 
@@ -969,12 +975,9 @@ document.addEventListener("DOMContentLoaded", function () {
     var prev = 0;
     order.forEach(function (o) {
       var b = boxes[o.i];
-      if (!o.vis || (focus !== null && o.i !== focus)) {
-        b.style.display = "none";
-        if (focus !== null && o.i !== focus) items[o.i].el.classList.remove("anot-hi");
-        return;
-      }
-      items[o.i].el.classList.add("anot-hi");
+      var hi = o.vis && (focus === null || o.i === focus);
+      items[o.i].el.classList.toggle("anot-hi", hi);
+      if (!o.vis || focus === null || o.i !== focus) { b.style.display = "none"; return; }
       b.style.display = "";
       var h = b.offsetHeight;
       var y = (focus !== null) ? Math.max(o.ty - h / 2, 10) : Math.max(o.ty - h / 2, prev + 16);
