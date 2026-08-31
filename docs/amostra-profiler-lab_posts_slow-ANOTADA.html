@@ -906,7 +906,7 @@ document.addEventListener("DOMContentLoaded", function () {
       t: "120 sql na view",
       d: "Quantas consultas rodaram nesta etapa (clicável: abre a lista com o SQL e o backtrace). O N+1 aparece embaixo do render porque o Active Record só executa quando a view usa os dados." },
 
-    { el: rows[2] ? rows[2].querySelectorAll(".profiler-duration")[3] : null,
+    { el: rows[2] ? rows[2].querySelectorAll(".profiler-duration")[4] : null,
       t: "QUERY TIME — 12,9 ms",
       d: "Tempo somado dessas consultas. De 123,6 ms de view, só 12,9 foram banco: o caro do N+1 é o Ruby fazer 120 idas e voltas, não o banco responder." },
 
