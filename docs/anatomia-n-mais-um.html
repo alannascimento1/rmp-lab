@@ -80,6 +80,11 @@
     <tr><td class="mono">FROM START</td><td>Quando começou, contado da chegada da requisição?</td></tr>
     <tr><td class="mono">QUERY TIME</td><td>Quantas consultas rodaram ali, e quanto custaram?</td></tr>
   </table></div>
+  <p class="prova">Definições originais, no código-fonte da gem (v5.0.0, a versão usada aqui) — os mesmos textos aparecem como tooltip ao passar o mouse nas colunas do painel:
+    <a target="_blank" rel="noopener" href="https://github.com/MiniProfiler/rack-mini-profiler/blob/v5.0.0/lib/html/includes.tmpl#L179">duration — “duration of this step without any children's durations”</a> ·
+    <a target="_blank" rel="noopener" href="https://github.com/MiniProfiler/rack-mini-profiler/blob/v5.0.0/lib/html/includes.tmpl#L182">with children — “duration of this step and its children”</a> ·
+    <a target="_blank" rel="noopener" href="https://github.com/MiniProfiler/rack-mini-profiler/blob/v5.0.0/lib/html/includes.tmpl#L185">from start — “time elapsed since profiling started”</a> ·
+    <a target="_blank" rel="noopener" href="https://github.com/MiniProfiler/rack-mini-profiler/blob/v5.0.0/lib/html/includes.tmpl#L196">query time — “aggregate duration of all queries in this step (excludes children)”</a></p>
   <p>Na medição slow, a conta fecha assim:</p>
   <div class="scroll"><table>
     <tr><th>Etapa</th><th class="num">with children</th><th class="num">duration</th><th class="num">from start</th></tr>
@@ -140,5 +145,14 @@ SELECT "users".*    WHERE id = ?   → _post_card.html.erb:8 em Array#map
     <li><strong>Percentual de SQL não compara páginas</strong>; milissegundos comparam.</li>
   </ul>
 
-  <p class="foot">Reproduza em casa: <a target="_blank" rel="noopener" href="https://github.com/alannascimento1/rmp-lab">github.com/alannascimento1/rmp-lab</a> — <code>bin/rails db:prepare db:seed</code> e abra <code>/lab/posts/slow</code>. A configuração comentada do profiler está em <a target="_blank" rel="noopener" href="https://github.com/alannascimento1/rmp-lab/blob/main/config/initializers/rack_mini_profiler.rb">config/initializers/rack_mini_profiler.rb</a>; os dados sintéticos, em <a target="_blank" rel="noopener" href="https://github.com/alannascimento1/rmp-lab/blob/main/db/seeds.rb">db/seeds.rb</a>. As medições citadas: <a target="_blank" rel="noopener" href="./amostra-profiler-lab_posts_slow-129.6ms.html">slow</a> · <a target="_blank" rel="noopener" href="./amostra-profiler-lab_posts_fast-21.6ms.html">fast</a>.</p>
+    <h2>Referências técnicas</h2>
+  <ul>
+    <li><strong>Colunas do painel</strong> — template da interface da gem, com as definições em tooltip: <a target="_blank" rel="noopener" href="https://github.com/MiniProfiler/rack-mini-profiler/blob/v5.0.0/lib/html/includes.tmpl#L179-L199">includes.tmpl, linhas 179–199</a>.</li>
+    <li><strong>Etiqueta [CACHE]</strong> — a gem recebe a marca de consulta cacheada do Rails e renderiza o selo: <a target="_blank" rel="noopener" href="https://github.com/MiniProfiler/rack-mini-profiler/blob/v5.0.0/lib/mini_profiler/timer_struct/sql.rb#L13">timer_struct/sql.rb#L13</a> (parâmetro <code>cached</code>). O mecanismo por trás é o SQL cache do Active Record: <a target="_blank" rel="noopener" href="https://guides.rubyonrails.org/caching_with_rails.html#sql-caching">Rails Guides, “SQL Caching”</a>.</li>
+    <li><strong>Por que a etiqueta DUPLICATE não aparece</strong> — o campo existe no template (<a target="_blank" rel="noopener" href="https://github.com/MiniProfiler/rack-mini-profiler/blob/v5.0.0/lib/html/includes.tmpl#L231">includes.tmpl#L231</a>), mas nasce <code>false</code> e nenhum código o ativa nesta versão: <a target="_blank" rel="noopener" href="https://github.com/MiniProfiler/rack-mini-profiler/blob/v5.0.0/lib/mini_profiler/timer_struct/sql.rb#L53">timer_struct/sql.rb#L53</a>. A repetição se identifica pelos selects empilhados e pelo contador de cached.</li>
+    <li><strong>Carregamento preguiçoso e <code>includes</code></strong> — <a target="_blank" rel="noopener" href="https://guides.rubyonrails.org/active_record_querying.html#eager-loading-associations">Rails Guides, “Eager Loading Associations”</a> (o problema N+1 é o exemplo de abertura do guia).</li>
+    <li><strong>Medições do navegador</strong> — a segunda tabela usa a API de Navigation Timing do próprio browser: <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Performance_API/Navigation_timing">MDN, “Navigation Timing”</a>.</li>
+  </ul>
+
+<p class="foot">Reproduza em casa: <a target="_blank" rel="noopener" href="https://github.com/alannascimento1/rmp-lab">github.com/alannascimento1/rmp-lab</a> — <code>bin/rails db:prepare db:seed</code> e abra <code>/lab/posts/slow</code>. A configuração comentada do profiler está em <a target="_blank" rel="noopener" href="https://github.com/alannascimento1/rmp-lab/blob/main/config/initializers/rack_mini_profiler.rb">config/initializers/rack_mini_profiler.rb</a>; os dados sintéticos, em <a target="_blank" rel="noopener" href="https://github.com/alannascimento1/rmp-lab/blob/main/db/seeds.rb">db/seeds.rb</a>. As medições citadas: <a target="_blank" rel="noopener" href="./amostra-profiler-lab_posts_slow-129.6ms.html">slow</a> · <a target="_blank" rel="noopener" href="./amostra-profiler-lab_posts_fast-21.6ms.html">fast</a>.</p>
 </div>
