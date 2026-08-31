@@ -16,7 +16,7 @@ puts "limpando..."
 
 puts "criando #{USERS} usuarios..."
 first_names = %w[Ana Bruno Carla Diego Elisa Fabio Gabi Heitor Iara Joao Karina Lucas Marina Nuno Olivia Paulo Rita Sergio Tania Vitor]
-food_names  = %w[Caju Abacaxi Goiaba Jabuticaba Pitanga Mamao Pequi Acerola Graviola Cupuacu Maracuja Jambo Carambola Seriguela Umbu Buriti Tapioca Pamonha Paçoca Cocada]
+food_names  = %w[Morango Uva Caju Abacaxi Goiaba Melancia Manga Banana Laranja Limao Abacate Ameixa Cereja Figo Kiwi Pera Pessego Framboesa Amora Melao]
 
 users = Array.new(USERS) do |i|
   # 20 nomes x 20 comidas = 400 combinacoes unicas ("Joao Caju")
