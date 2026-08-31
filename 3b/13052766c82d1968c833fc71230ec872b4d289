@@ -1,0 +1,19 @@
+docs/amostra-profiler-lab_posts_slow-ANOTADA.html
+  s_93ea2ba7d2a721::t_0d6032ad278d7b 877,947,949-954,978-980
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "3b13052766c82d1968c833fc71230ec872b4d289",
+  "prompts": {},
+  "sessions": {
+    "s_93ea2ba7d2a721": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2568658a-6053-4988-9865-2dd6fa8a2213",
+        "model": "claude-opus-5"
+      },
+      "human_author": "alan <nascimentoalankst@gmail.com>"
+    }
+  }
+}
