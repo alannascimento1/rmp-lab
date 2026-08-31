@@ -882,7 +882,7 @@ document.addEventListener("DOMContentLoaded", function () {
   head.innerHTML = '<strong>Cópia anotada</strong> — mesma medição de <code>/lab/posts/slow</code> (129,6 ms, 121 consultas), ' +
     'com setas explicando o painel. O original, sem marcações, é <code>amostra-profiler-lab_posts_slow-129.6ms.html</code>. ' +
     'Explicação completa no artigo <a href="./anatomia-n-mais-um.html" target="_blank" rel="noopener">Anatomia de um N+1</a>.' +
-    '<span class="sec"><b style="color:#2ecc9a">Clique em qualquer trecho destacado em verde</b> para ver a explicação dele. Clique de novo, em qualquer lugar da página ou aperte Esc para fechar. São 20 trechos anotados, do topo até o rodapé. Nesta cópia a coluna <code>with children</code> já vem visível — o link <code>show time with children</code> liga e desliga ela.</span>';
+    '<span class="sec"><b style="color:#2ecc9a">Clique em qualquer trecho destacado em verde</b> para ver a explicação dele. Clique de novo, em qualquer lugar da página ou aperte Esc para fechar. São 22 trechos anotados, do topo até o rodapé. Nesta cópia a coluna <code>with children</code> já vem visível — o link <code>show time with children</code> liga e desliga ela.</span>';
   document.body.insertBefore(head, document.body.firstChild);
 
   var rows  = document.querySelectorAll(".profiler-timings tbody tr");
@@ -911,6 +911,10 @@ document.addEventListener("DOMContentLoaded", function () {
         "São os middlewares na entrada, o roteamento e o envio da resposta na saída. Duas consequências: a coluna soma exatamente o total (3,8 + 2,2 + 123,6 = 129,6), e o maior valor dela aponta o gargalo — o render, com 123,6." },
     { el: cell(0, ".profiler-duration-with-children"), t:"WITH CHILDREN — 129,6 ms",
       d:"O tempo desta linha somando tudo que rodou dentro dela. Na linha do GET é a requisição inteira — o número que aparece no badge. Compare com a coluna ao lado: 129,6 aqui contra 3,8 em duration." },
+    { el: cell(1, ".profiler-duration:not(.profiler-duration-with-children):not(.time-from-start)"), t:"2,2 ms — self time da action",
+      d:"O código do controller em si: instanciar a action, rodar <code>@posts = Post.recent.limit(30)</code> e devolver. Custa quase nada porque essa linha não executa SQL — o Active Record é preguiçoso, só monta a consulta; quem dispara é a view. Se o N+1 estivesse na action, o número alto apareceria aqui." },
+    { el: cell(1, ".profiler-duration-with-children"), t:"125,8 ms — a action com tudo dentro",
+      d:"With children da action: os 2,2 ms dela somados aos 123,6 do render, que roda dentro dela (2,2 + 123,6 = 125,8). É o tempo entre o Rails entregar a requisição ao controller e receber a resposta pronta." },
     { el: cell(1, ".time-from-start"), t:"FROM START — +3,0 ms",
       d:"Quando a etapa começou, contado da chegada da requisição. GET em +0,0, action em +3,0, view em +4,4: a linha do tempo." },
     { el: cell(2, ".profiler-duration:not(.profiler-duration-with-children):not(.time-from-start)"), t:"A view é a culpada — 123,6 ms",
