@@ -1,0 +1,14 @@
+docs/amostra-profiler-lab_posts_slow-ANOTADA.html
+  h_247d0bda06f7bb 885,914-917
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "041daa2378b8e16cd0444a06f7420fdd373e9586",
+  "prompts": {},
+  "humans": {
+    "h_247d0bda06f7bb": {
+      "author": "alan <nascimentoalankst@gmail.com>"
+    }
+  }
+}
