@@ -861,7 +861,7 @@ app/views/lab/posts/slow/index.html.erb:10:in '_app_views_lab_posts_slow_index_h
   .anot-box .n { display:inline-block; min-width:19px; height:19px; line-height:19px; text-align:center;
                  background:#2ecc9a; color:#06211a; border-radius:50%; font-weight:700; font-size:11px; margin-right:6px; }
   .anot-box code { background:#22302b; padding:.05em .35em; border-radius:3px; font-size:12px; }
-  .anot-box .calc { display:block; white-space:pre; font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  .anot-box .calc { display:block; white-space:pre; overflow-x:auto; font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
                     font-size:12px; line-height:1.6; background:#0b1210; border:1px solid #24352f;
                     border-radius:6px; padding:8px 10px; margin:7px 0 8px; color:#cfe8df; }
   .anot-box .calc i { color:#8aa79c; font-style:normal; }
@@ -904,10 +904,10 @@ document.addEventListener("DOMContentLoaded", function () {
       d:"Cada linha é uma medição do request: a passagem pelo Rack (GET), a action do controller e o render da view. A indentação indica aninhamento — a action roda dentro do request, o render dentro da action." },
     { el: cell(0, ".profiler-duration:not(.profiler-duration-with-children):not(.time-from-start)"), t:"DURATION — o tempo que sobra nesta linha",
       d:"Nesta linha, duration nao e o tempo da requisicao: e o que sobra depois de descontar a linha de baixo." +
-        "<span class='calc'>  129,6 ms  <i>a requisicao inteira (with children)</i>\n" +
-        "- 125,8 ms  <i>a linha Executing, com a view dentro</i>\n" +
+        "<span class='calc'>  129,6 ms  <i>requisicao inteira</i>\n" +
+        "- 125,8 ms  <i>linha Executing</i>\n" +
         "----------\n" +
-        "<u>    3,8 ms  o duration desta linha</u></span>" +
+        "<u>    3,8 ms  duration desta linha</u></span>" +
         "Esses 3,8 ms sao o que o Rails gastou fora do controller: middlewares, roteamento e envio da resposta." },
     { el: cell(0, ".profiler-duration-with-children"), t:"WITH CHILDREN — 129,6 ms",
       d:"O tempo desta linha somando tudo que rodou dentro dela. Na linha do GET é a requisição inteira — o número que aparece no badge. Compare com a coluna ao lado: 129,6 aqui contra 3,8 em duration." },
@@ -992,15 +992,23 @@ document.addEventListener("DOMContentLoaded", function () {
       items[o.i].el.classList.toggle("anot-hi", hi);
       if (!o.vis || focus === null || o.i !== focus) { b.style.display = "none"; return; }
       b.style.display = "";
-      var h = b.offsetHeight;
-      var y = (focus !== null) ? Math.max(o.ty - h / 2, 10) : Math.max(o.ty - h / 2, prev + 16);
-      b.style.left = colX + "px"; b.style.top = y + "px";
+      var h = b.offsetHeight, bw = b.offsetWidth, x = colX, y;
+      if (focus !== null) {
+        x = Math.min(colX, sx + window.innerWidth - bw - 20);
+        x = Math.max(x, Math.min(o.tx + 30, sx + window.innerWidth - bw - 20));
+        y = Math.max(o.ty - h / 2, sy + 10);
+        y = Math.min(y, sy + window.innerHeight - h - 10);
+        y = Math.max(y, sy + 10);
+      } else {
+        y = Math.max(o.ty - h / 2, prev + 16);
+      }
+      b.style.left = x + "px"; b.style.top = y + "px";
       prev = y + h;
 
       var by = Math.min(Math.max(o.ty, y + 12), y + h - 12);
       var p = document.createElementNS(NS, "path");
-      var mid = (o.tx + colX) / 2;
-      p.setAttribute("d", "M " + colX + " " + by + " C " + mid + " " + by + ", " + mid + " " + o.ty + ", " + (o.tx + 6) + " " + o.ty);
+      var mid = (o.tx + x) / 2;
+      p.setAttribute("d", "M " + x + " " + by + " C " + mid + " " + by + ", " + mid + " " + o.ty + ", " + (o.tx + 6) + " " + o.ty);
       p.setAttribute("fill", "none"); p.setAttribute("stroke", "#2ecc9a");
       p.setAttribute("stroke-width", "1.6"); p.setAttribute("marker-end", "url(#anot-arrow)");
       svg.appendChild(p);
