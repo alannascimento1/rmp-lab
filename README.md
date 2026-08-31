@@ -66,6 +66,20 @@ gem "stackprof"
 
 Depois `bundle install` e acesse `/lab/scores?pp=flamegraph`.
 
+## Documentação e amostras (`docs/`)
+
+- [`docs/anatomia-n-mais-um.html`](docs/anatomia-n-mais-um.html) — **artigo**: como ler o painel
+  (colunas, backtrace, `[CACHE]`) usando duas medições reais da mesma página, com links de prova
+  para as amostras e para o código-fonte da gem.
+- [`docs/amostra-profiler-lab_posts_slow-129.6ms.html`](docs/amostra-profiler-lab_posts_slow-129.6ms.html) —
+  medição congelada do `/lab/posts/slow`: 129,6 ms, 121 queries (33 cached).
+- [`docs/amostra-profiler-lab_posts_fast-21.6ms.html`](docs/amostra-profiler-lab_posts_fast-21.6ms.html) —
+  a mesma página corrigida: 21,6 ms, 4 queries.
+
+No GitHub esses links mostram o código-fonte; para ver renderizado, abra os arquivos localmente
+depois do clone, ou use o [htmlpreview do artigo](https://htmlpreview.github.io/?https://github.com/alannascimento1/rmp-lab/blob/main/docs/anatomia-n-mais-um.html).
+As amostras vêm do botão **share** do próprio profiler, com o CSS embutido para funcionarem offline.
+
 ## Arquivos que importam
 
 - `config/initializers/rack_mini_profiler.rb` — configuração comentada opção por opção
