@@ -892,8 +892,8 @@ document.addEventListener("DOMContentLoaded", function () {
   if (pre) pre.innerHTML = pre.innerHTML.replace(/(\/\*[^*]*\*\/)/, '<span class="anot-tags">$1</span>');
 
   var items = [
-    { el: ths[0], t:"EVENT — a coluna das etapas",
-      d:"Cada linha é uma etapa do atendimento, e a indentação mostra o aninhamento: o GET contém a action, que contém a view. Caixas uma dentro da outra." },
+    { el: ths[0], t:"EVENT — o que foi executado",
+      d:"Cada linha é uma medição do request: a passagem pelo Rack (GET), a action do controller e o render da view. A indentação indica aninhamento — a action roda dentro do request, o render dentro da action." },
     { el: cell(0, ".profiler-duration:not(.profiler-duration-with-children):not(.time-from-start)"), t:"DURATION — 3,8 ms",
       d:"O que sobra para a própria etapa depois de descontar as linhas de baixo: 129,6 ? 125,8 = 3,8. É o trabalho do framework em volta do seu código." },
     { el: cell(0, ".profiler-duration-with-children"), t:"WITH CHILDREN — 129,6 ms",

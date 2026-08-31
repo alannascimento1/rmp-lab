@@ -71,7 +71,7 @@
   <p class="prova">Provas: <a target="_blank" rel="noopener" href="./amostra-profiler-lab_posts_slow-129.6ms.html">medição slow (129,6 ms)</a> · <a target="_blank" rel="noopener" href="./amostra-profiler-lab_posts_fast-21.6ms.html">medição fast (21,6 ms)</a> — páginas geradas pelo botão <em>share</em> do próprio profiler, guardadas nesta mesma pasta.</p>
 
   <h2>As colunas do painel</h2>
-  <p>A visão-resumo tem uma linha por <strong>etapa</strong> do atendimento — o servidor recebendo a requisição (GET), a action rodando, a view sendo desenhada — e as etapas são caixas uma dentro da outra. As colunas medem cada caixa:</p>
+  <p>A visão-resumo tem uma linha por trecho medido do request: a passagem pelo Rack (<code>GET</code>), a action do controller e o render da view. A indentação indica aninhamento — a action roda dentro do request, o render dentro da action — e as colunas medem cada um desses trechos:</p>
   <div class="scroll"><table>
     <tr><th>Coluna</th><th>Pergunta que responde</th></tr>
     <tr><td class="mono">EVENT</td><td>O que o servidor estava fazendo?</td></tr>
