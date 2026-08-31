@@ -30,9 +30,10 @@ Rack::MiniProfiler.config.tap do |config|
   # Baixe para 0 se quiser backtrace de tudo (fica verboso).
   config.backtrace_threshold_ms = 0
 
-  # Mostra tambem as queries que o Rails faz para descobrir colunas/schema.
-  # Default e' true (esconde). Deixar false ajuda a entender o boot da request.
-  config.skip_schema_queries = false
+  # Esconde as queries internas do Rails (descoberta de colunas/schema).
+  # E' o default; com false elas aparecem no painel — util para estudar o boot
+  # de uma request, mas poluem os cenarios do lab.
+  config.skip_schema_queries = true
 
   # Onde os snapshots dos requests ficam. MemoryStore some quando o servidor
   # reinicia — perfeito para dev. Em ambientes com varios processos use
