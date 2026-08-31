@@ -1,0 +1,19 @@
+docs/anatomia-n-mais-um.html
+  s_93ea2ba7d2a721::t_178182c44470b4 1-4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "1e3a92119de4c63b6606b765efc70b027d9e9fdb",
+  "prompts": {},
+  "sessions": {
+    "s_93ea2ba7d2a721": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2568658a-6053-4988-9865-2dd6fa8a2213",
+        "model": "unknown"
+      },
+      "human_author": "alan <nascimentoalankst@gmail.com>"
+    }
+  }
+}
