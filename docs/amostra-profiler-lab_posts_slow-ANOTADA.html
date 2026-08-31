@@ -896,10 +896,10 @@ document.addEventListener("DOMContentLoaded", function () {
   var items = [
     { el: ths[0], t:"EVENT — o que foi executado",
       d:"Cada linha é uma medição do request: a passagem pelo Rack (GET), a action do controller e o render da view. A indentação indica aninhamento — a action roda dentro do request, o render dentro da action." },
-    { el: cell(0, ".profiler-duration:not(.profiler-duration-with-children):not(.time-from-start)"), t:"DURATION — 3,8 ms",
-      d:"O que sobra para a própria etapa depois de descontar as linhas de baixo: 129,6 ? 125,8 = 3,8. É o trabalho do framework em volta do seu código." },
+    { el: cell(0, ".profiler-duration:not(.profiler-duration-with-children):not(.time-from-start)"), t:"DURATION — 3,8 ms nesta linha",
+      d:"Duration é o tempo que ficou <b>nesta linha</b> depois de tirar o que as linhas de baixo já explicam. Aqui: a requisição inteira levou 129,6 ms (coluna with children) e a linha <code>Executing</code> responde por 125,8 — a diferença, 3,8 ms, é o que rodou fora do controller: middlewares do Rack, roteamento e envio da resposta. Somando a coluna duration das três linhas: 3,8 + 2,2 + 123,6 = 129,6." },
     { el: cell(0, ".profiler-duration-with-children"), t:"WITH CHILDREN — 129,6 ms",
-      d:"A requisição inteira, contando tudo que rodou dentro. É o número do badge da página." },
+      d:"O tempo desta linha somando tudo que rodou dentro dela. Na linha do GET é a requisição inteira — o número que aparece no badge. Compare com a coluna ao lado: 129,6 aqui contra 3,8 em duration." },
     { el: cell(1, ".time-from-start"), t:"FROM START — +3,0 ms",
       d:"Quando a etapa começou, contado da chegada da requisição. GET em +0,0, action em +3,0, view em +4,4: a linha do tempo." },
     { el: cell(2, ".profiler-duration:not(.profiler-duration-with-children):not(.time-from-start)"), t:"A view é a culpada — 123,6 ms",
