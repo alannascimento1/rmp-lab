@@ -996,7 +996,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var w = colX + 360, hh = Math.max(prev + 40, document.body.scrollHeight);
     layer.style.width = w + "px"; layer.style.height = hh + "px";
     svg.setAttribute("width", w); svg.setAttribute("height", hh);
-    document.body.style.minWidth = (w + 30) + "px";
+    document.body.style.minWidth = (focus === null) ? "" : (w + 30) + "px";
   }
 
   place();
