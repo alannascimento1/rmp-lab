@@ -16,10 +16,11 @@ puts "limpando..."
 
 puts "criando #{USERS} usuarios..."
 first_names = %w[Ana Bruno Carla Diego Elisa Fabio Gabi Heitor Iara Joao Karina Lucas Marina Nuno Olivia Paulo Rita Sergio Tania Vitor]
-last_names  = %w[Almeida Barbosa Costa Dias Esteves Freitas Gomes Henriques Iglesias Jardim Klein Lopes Moreira Nunes Oliveira Pinto Queiroz Ramos Santos Teixeira]
+food_names  = %w[Caju Abacaxi Goiaba Jabuticaba Pitanga Mamao Pequi Acerola Graviola Cupuacu Maracuja Jambo Carambola Seriguela Umbu Buriti Tapioca Pamonha Paçoca Cocada]
 
 users = Array.new(USERS) do |i|
-  name = "#{first_names[i % first_names.size]} #{last_names[(i / first_names.size) % last_names.size]} #{i + 1}"
+  # 20 nomes x 20 comidas = 400 combinacoes unicas ("Joao Caju")
+  name = "#{first_names[i % first_names.size]} #{food_names[(i / first_names.size) % food_names.size]}"
   { name: name, email: "user#{i + 1}@example.com", bio: "Perfil de teste numero #{i + 1}.",
     posts_count: 0, created_at: now, updated_at: now }
 end
