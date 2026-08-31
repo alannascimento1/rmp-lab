@@ -902,13 +902,13 @@ document.addEventListener("DOMContentLoaded", function () {
   var items = [
     { el: ths[0], t:"EVENT — o que foi executado",
       d:"Cada linha é uma medição do request: a passagem pelo Rack (GET), a action do controller e o render da view. A indentação indica aninhamento — a action roda dentro do request, o render dentro da action." },
-    { el: cell(0, ".profiler-duration:not(.profiler-duration-with-children):not(.time-from-start)"), t:"DURATION — tempo próprio da linha",
-      d:"É o tempo gasto pelo trecho medido <b>sem contar os trechos aninhados nele</b> — a definição da própria gem: <i>duration of this step without any children's durations</i>. Como o tempo dos filhos já tem linha própria, ele é descontado aqui:" +
+    { el: cell(0, ".profiler-duration:not(.profiler-duration-with-children):not(.time-from-start)"), t:"DURATION — self time (tempo próprio)",
+      d:"Cada instante dos 129,6 ms pertence a exatamente uma linha: <b>a mais interna que estava executando naquele momento</b>. Duration soma os instantes que pertencem a esta linha — o que em profiling se chama <i>self time</i>. Enquanto a action ou a view rodavam, o relógio contava para elas; para o GET sobrou só o que rodou fora das duas:" +
         "<span class='calc'>  129,6 ms  <i>total do GET</i>\n" +
         "- 125,8 ms  <i>filho: Executing</i>\n" +
         "----------\n" +
-        "<u>    3,8 ms  tempo próprio</u></span>" +
-        "Nesta linha os 3,8 ms restantes são o Rails fora do controller: middlewares, roteamento e envio da resposta. Duas consequências: a coluna inteira soma o total exato (3,8 + 2,2 + 123,6 = 129,6), sem contar nada duas vezes; e o maior valor dela aponta quem realmente gastou o tempo — aqui, o render, com 123,6." },
+        "<u>    3,8 ms  self time do GET</u></span>" +
+        "São os middlewares na entrada, o roteamento e o envio da resposta na saída. Duas consequências: a coluna soma exatamente o total (3,8 + 2,2 + 123,6 = 129,6), e o maior valor dela aponta o gargalo — o render, com 123,6." },
     { el: cell(0, ".profiler-duration-with-children"), t:"WITH CHILDREN — 129,6 ms",
       d:"O tempo desta linha somando tudo que rodou dentro dela. Na linha do GET é a requisição inteira — o número que aparece no badge. Compare com a coluna ao lado: 129,6 aqui contra 3,8 em duration." },
     { el: cell(1, ".time-from-start"), t:"FROM START — +3,0 ms",

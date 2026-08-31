@@ -76,7 +76,7 @@
     <tr><th>Coluna</th><th>Pergunta que responde</th></tr>
     <tr><td class="mono">EVENT</td><td>O que o servidor estava fazendo?</td></tr>
     <tr><td class="mono">WITH CHILDREN</td><td>Quanto durou no relógio, do início ao fim, contando tudo que rodou dentro?</td></tr>
-    <tr><td class="mono">DURATION</td><td>Quanto sobrou para a própria etapa, descontando as linhas de baixo?</td></tr>
+    <tr><td class="mono">DURATION</td><td>Quanto tempo executando o código desta linha em si (<em>self time</em>)? Cada instante do request conta para a linha mais interna ativa no momento.</td></tr>
     <tr><td class="mono">FROM START</td><td>Quando começou, contado da chegada da requisição?</td></tr>
     <tr><td class="mono">QUERY TIME</td><td>Quantas consultas rodaram ali, e quanto custaram?</td></tr>
   </table></div>
@@ -92,7 +92,7 @@
     <tr><td class="mono">&nbsp;&nbsp;Executing: slow#index</td><td class="num">125,8</td><td class="num">2,2</td><td class="num">+3,0</td></tr>
     <tr><td class="mono">&nbsp;&nbsp;&nbsp;&nbsp;Rendering: slow/index</td><td class="num">123,6</td><td class="num">123,6</td><td class="num">+4,4</td></tr>
   </table></div>
-  <p><strong>Duration é uma subtração.</strong> A requisição inteira levou 129,6 ms; a view explica 123,6 e a action 2,2 — sobram 3,8 ms, que é o trabalho do próprio framework (receber o pedido, resolver a rota, enviar a resposta). Somando a coluna duration, 3,8 + 2,2 + 123,6 = 129,6: cada milissegundo aparece em exatamente uma linha. A view tem os dois números iguais porque não há nada dentro dela. E <em>from start</em> é a linha do tempo: a action entrou a +3,0, a view a +4,4.</p>
+  <p><strong>Duration é o <em>self time</em>.</strong> A regra de atribuição é uma só: cada instante da requisição pertence à linha mais interna que estava executando naquele momento. Enquanto a view rodava, o relógio contava para ela; enquanto era código da action fora do render, para a action; e os instantes em que só o framework rodava — middlewares na entrada, roteamento, envio da resposta na saída — ficam com o GET. Na prática isso vira uma subtração: 129,6 do total, menos 125,8 que o <code>Executing</code> explica, sobram 3,8 ms de self time para o GET. Duas propriedades seguem da regra: a coluna soma exatamente o total (3,8 + 2,2 + 123,6 = 129,6), porque nenhum instante conta duas vezes; e o maior valor dela aponta o gargalo. A view tem duration igual a with children (123,6) porque não há nada mais interno que ela. E <em>from start</em> é a linha do tempo: a action entrou a +3,0, a view a +4,4.</p>
 
   <h2>O sintoma: 121 consultas na view</h2>
   <p>O contador de SQL da medição slow marca <strong>121 (33 cached)</strong> — e 120 delas estão penduradas na linha do <em>Rendering</em>, não na da action. Não é acaso: o Active Record é preguiçoso. <code>Post.recent.limit(30)</code> no controller só monta a consulta; quem dispara é a view, quando itera a lista. A primeira consulta da medição prova isso — o backtrace do <code>SELECT posts</code> aponta para a view, não para o controller:</p>
