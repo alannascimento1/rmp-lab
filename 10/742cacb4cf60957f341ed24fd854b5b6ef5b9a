@@ -1,0 +1,49 @@
+app/controllers/lab/rankings/slow_controller.rb
+  s_93ea2ba7d2a721::t_d6be32c0d88ce6 1-21
+app/controllers/lab/posts/fast_controller.rb
+  s_93ea2ba7d2a721::t_d6be32c0d88ce6 1-10
+app/controllers/lab/post_rows/fast_controller.rb
+  s_93ea2ba7d2a721::t_d6be32c0d88ce6 1-7
+app/controllers/lab/rankings/fast_controller.rb
+  s_93ea2ba7d2a721::t_d6be32c0d88ce6 1-13
+app/views/lab/post_rows/fast/index.html.erb
+  s_93ea2ba7d2a721::t_d6be32c0d88ce6 1-7
+app/controllers/lab/posts/slow_controller.rb
+  s_93ea2ba7d2a721::t_d6be32c0d88ce6 1-15
+app/views/lab/lookups/slow/index.html.erb
+  s_93ea2ba7d2a721::t_d6be32c0d88ce6 1-12
+app/controllers/lab/lookups/fast_controller.rb
+  s_93ea2ba7d2a721::t_d6be32c0d88ce6 1-10
+app/controllers/lab/lookups/slow_controller.rb
+  s_93ea2ba7d2a721::t_d6be32c0d88ce6 1-30
+app/views/lab/post_rows/slow/index.html.erb
+  s_93ea2ba7d2a721::t_d6be32c0d88ce6 1-10
+config/routes.rb
+  s_93ea2ba7d2a721::t_d6be32c0d88ce6 4-5,7-22
+app/controllers/lab/post_rows/slow_controller.rb
+  s_93ea2ba7d2a721::t_d6be32c0d88ce6 1-14
+app/views/lab/lookups/fast/index.html.erb
+  s_93ea2ba7d2a721::t_d6be32c0d88ce6 1-12
+README.md
+  s_93ea2ba7d2a721::t_2875601a14574b 33-36,74
+app/views/lab/home/index.html.erb
+  s_93ea2ba7d2a721::t_0ad2197f2a69d0 27,29,36,38,45,47,54,56,81-84
+app/views/layouts/application.html.erb
+  s_93ea2ba7d2a721::t_34adfd2401d00b 15-16,20-21,25-26,30-31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "10742cacb4cf60957f341ed24fd854b5b6ef5b9a",
+  "prompts": {},
+  "sessions": {
+    "s_93ea2ba7d2a721": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2568658a-6053-4988-9865-2dd6fa8a2213",
+        "model": "claude-fable-5"
+      },
+      "human_author": "alan <nascimentoalankst@gmail.com>"
+    }
+  }
+}
