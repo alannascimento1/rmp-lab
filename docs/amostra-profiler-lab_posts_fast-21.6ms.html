@@ -2,6 +2,483 @@
 <!-- saved from url=(0077)http://localhost:3000/mini-profiler-resources/results?id=82ms08h7h4yoa0wrw80d -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
         <title>/lab/posts/fast (21.6 ms) - Profiling Results</title>
+<style>
+@charset "UTF-8";
+.mp-snapshots,
+.profiler-result,
+.profiler-queries {
+  color: #555;
+  line-height: 1;
+  font-size: 12px; }
+  .mp-snapshots pre,
+  .mp-snapshots code,
+  .mp-snapshots label,
+  .mp-snapshots table,
+  .mp-snapshots tbody,
+  .mp-snapshots thead,
+  .mp-snapshots tfoot,
+  .mp-snapshots tr,
+  .mp-snapshots th,
+  .mp-snapshots td,
+  .profiler-result pre,
+  .profiler-result code,
+  .profiler-result label,
+  .profiler-result table,
+  .profiler-result tbody,
+  .profiler-result thead,
+  .profiler-result tfoot,
+  .profiler-result tr,
+  .profiler-result th,
+  .profiler-result td,
+  .profiler-queries pre,
+  .profiler-queries code,
+  .profiler-queries label,
+  .profiler-queries table,
+  .profiler-queries tbody,
+  .profiler-queries thead,
+  .profiler-queries tfoot,
+  .profiler-queries tr,
+  .profiler-queries th,
+  .profiler-queries td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    background-color: transparent;
+    overflow: visible;
+    max-height: none; }
+  .mp-snapshots table,
+  .profiler-result table,
+  .profiler-queries table {
+    border-collapse: collapse;
+    border-spacing: 0; }
+  .mp-snapshots a,
+  .mp-snapshots a:hover,
+  .profiler-result a,
+  .profiler-result a:hover,
+  .profiler-queries a,
+  .profiler-queries a:hover {
+    cursor: pointer;
+    color: #0077cc; }
+  .mp-snapshots a,
+  .profiler-result a,
+  .profiler-queries a {
+    text-decoration: none; }
+    .mp-snapshots a:hover,
+    .profiler-result a:hover,
+    .profiler-queries a:hover {
+      text-decoration: underline; }
+  .mp-snapshots .custom-fields-title,
+  .profiler-result .custom-fields-title,
+  .profiler-queries .custom-fields-title {
+    color: #555;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px; }
+  .mp-snapshots .ta-left,
+  .profiler-result .ta-left,
+  .profiler-queries .ta-left {
+    text-align: left; }
+  .mp-snapshots .ta-right,
+  .profiler-result .ta-right,
+  .profiler-queries .ta-right {
+    text-align: right; }
+
+.profiler-result {
+  font-family: Helvetica, Arial, sans-serif; }
+  .profiler-result .profiler-toggle-duration-with-children {
+    float: right; }
+  .profiler-result .profiler-snapshots-page-link {
+    float: left; }
+  .profiler-result table.profiler-client-timings {
+    margin-top: 10px; }
+  .profiler-result .profiler-label {
+    color: #555;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .profiler-result .profiler-unit {
+    color: #767676; }
+  .profiler-result .profiler-trivial {
+    display: none; }
+    .profiler-result .profiler-trivial td,
+    .profiler-result .profiler-trivial td * {
+      color: #767676 !important; }
+  .profiler-result pre,
+  .profiler-result code,
+  .profiler-result .profiler-number,
+  .profiler-result .profiler-unit {
+    font-family: Consolas, monospace, serif; }
+  .profiler-result .profiler-number {
+    color: #111;
+    display: inline-block; }
+  .profiler-result .profiler-info {
+    text-align: right; }
+    .profiler-result .profiler-info .profiler-name {
+      float: left; }
+    .profiler-result .profiler-info .profiler-server-time {
+      white-space: nowrap; }
+    .profiler-result .profiler-info .profiler-number {
+      display: block; }
+  .profiler-result .profiler-timings th {
+    background-color: #fff;
+    color: #767676;
+    text-align: right; }
+  .profiler-result .profiler-timings th,
+  .profiler-result .profiler-timings td {
+    white-space: nowrap; }
+  .profiler-result .profiler-timings .profiler-duration-with-children {
+    display: none; }
+  .profiler-result .profiler-timings .profiler-duration {
+    color: #111;
+    text-align: right; }
+  .profiler-result .profiler-timings .profiler-indent {
+    letter-spacing: 4px; }
+  .profiler-result .profiler-timings .profiler-queries-show .profiler-number,
+  .profiler-result .profiler-timings .profiler-queries-show .profiler-unit {
+    color: #0077cc; }
+  .profiler-result .profiler-timings .profiler-queries-duration {
+    padding-left: 6px; }
+  .profiler-result .profiler-timings .profiler-percent-in-sql {
+    white-space: nowrap; }
+  .profiler-result .profiler-timings tfoot tr td:last-child {
+    text-align: right; }
+  .profiler-result .profiler-timings-summary {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px; }
+    .profiler-result .profiler-timings-summary a {
+      font-size: 95%;
+      display: inline-block;
+      margin-left: 12px; }
+      .profiler-result .profiler-timings-summary a:first-child {
+        float: left;
+        margin-left: 0px; }
+      .profiler-result .profiler-timings-summary a.profiler-custom-link {
+        float: left; }
+  .profiler-result .profiler-queries {
+    font-family: Helvetica, Arial, sans-serif; }
+    .profiler-result .profiler-queries .profiler-stack-trace {
+      margin-bottom: 15px; }
+    .profiler-result .profiler-queries tbody tr {
+      border-bottom: 1px solid #f1f1f1; }
+    .profiler-result .profiler-queries tr {
+      background-color: #fff; }
+      .profiler-result .profiler-queries tr.higlight-animate {
+        animation: highlight-in 3s; }
+    .profiler-result .profiler-queries tr.slow {
+      background-color: #fee; }
+    .profiler-result .profiler-queries tr.very-slow {
+      background-color: #fdd; }
+    .profiler-result .profiler-queries tr.very-very-slow {
+      background-color: #fcc; }
+    .profiler-result .profiler-queries tr.cached {
+      background-color: #f2f0ef; }
+    .profiler-result .profiler-queries span.cached {
+      color: #818589; }
+    .profiler-result .profiler-queries span.cached + pre {
+      display: inline; }
+    .profiler-result .profiler-queries pre {
+      font-family: Consolas, monospace, serif;
+      white-space: pre-wrap; }
+    .profiler-result .profiler-queries th {
+      background-color: #fff;
+      border-bottom: 1px solid #555;
+      font-weight: bold;
+      padding: 15px;
+      white-space: nowrap; }
+    .profiler-result .profiler-queries td {
+      padding: 15px;
+      text-align: left; }
+      .profiler-result .profiler-queries td:last-child {
+        padding-right: 25px; }
+    .profiler-result .profiler-queries .profiler-since-start,
+    .profiler-result .profiler-queries .profiler-duration {
+      text-align: right; }
+    .profiler-result .profiler-queries .profiler-info div {
+      text-align: right;
+      margin-bottom: 5px; }
+    .profiler-result .profiler-queries .profiler-gap-info,
+    .profiler-result .profiler-queries .profiler-gap-info td {
+      background-color: #ccc; }
+    .profiler-result .profiler-queries .profiler-gap-info .profiler-unit {
+      color: #777; }
+    .profiler-result .profiler-queries .profiler-gap-info .profiler-info {
+      text-align: right; }
+    .profiler-result .profiler-queries .profiler-gap-info.profiler-trivial-gaps {
+      display: none; }
+    .profiler-result .profiler-queries .profiler-trivial-gap-container {
+      text-align: center; }
+    .profiler-result .profiler-queries .str {
+      color: maroon; }
+    .profiler-result .profiler-queries .kwd {
+      color: #00008b; }
+    .profiler-result .profiler-queries .com {
+      color: gray; }
+    .profiler-result .profiler-queries .typ {
+      color: #2b91af; }
+    .profiler-result .profiler-queries .lit {
+      color: maroon; }
+    .profiler-result .profiler-queries .pun {
+      color: #000; }
+    .profiler-result .profiler-queries .pln {
+      color: #000; }
+    .profiler-result .profiler-queries .tag {
+      color: maroon; }
+    .profiler-result .profiler-queries .atn {
+      color: red; }
+    .profiler-result .profiler-queries .atv {
+      color: blue; }
+    .profiler-result .profiler-queries .dec {
+      color: purple; }
+  .profiler-result .profiler-warning,
+  .profiler-result .profiler-warning *,
+  .profiler-result .profiler-warning .profiler-queries-show,
+  .profiler-result .profiler-warning .profiler-queries-show .profiler-unit {
+    color: #f00; }
+    .profiler-result .profiler-warning:hover,
+    .profiler-result .profiler-warning *:hover,
+    .profiler-result .profiler-warning .profiler-queries-show:hover,
+    .profiler-result .profiler-warning .profiler-queries-show .profiler-unit:hover {
+      color: #f00; }
+  .profiler-result .profiler-nuclear {
+    color: #f00;
+    font-weight: bold;
+    padding-right: 2px; }
+    .profiler-result .profiler-nuclear:hover {
+      color: #f00; }
+
+.profiler-results {
+  z-index: 2147483643;
+  position: fixed; }
+  .profiler-results.profiler-left .profiler-button {
+    text-align: left; }
+  .profiler-results.profiler-right .profiler-button {
+    text-align: right; }
+  .profiler-results .profiler-button > .profiler-duration-milliseconds {
+    min-width: 70px; }
+  .profiler-results .profiler-button > .profiler-sql-count {
+    min-width: 55px; }
+  .profiler-results .profiler-button > .profiler-name {
+    min-width: 190px;
+    margin-left: 3px; }
+  .profiler-results .profiler-button > .profiler-number {
+    text-align: right; }
+  .profiler-results.profiler-top {
+    top: 0px; }
+    .profiler-results.profiler-top.profiler-left {
+      left: 0px; }
+      .profiler-results.profiler-top.profiler-left.profiler-no-controls .profiler-totals, .profiler-results.profiler-top.profiler-left.profiler-no-controls .profiler-result:last-child .profiler-button,
+      .profiler-results.profiler-top.profiler-left .profiler-controls {
+        border-bottom-right-radius: 10px; }
+      .profiler-results.profiler-top.profiler-left .profiler-button,
+      .profiler-results.profiler-top.profiler-left .profiler-controls {
+        border-right: 1px solid #888; }
+    .profiler-results.profiler-top.profiler-right {
+      right: 0px; }
+      .profiler-results.profiler-top.profiler-right.profiler-no-controls .profiler-totals, .profiler-results.profiler-top.profiler-right.profiler-no-controls .profiler-result:last-child .profiler-button,
+      .profiler-results.profiler-top.profiler-right .profiler-controls {
+        border-bottom-left-radius: 10px; }
+      .profiler-results.profiler-top.profiler-right .profiler-button,
+      .profiler-results.profiler-top.profiler-right .profiler-controls {
+        border-left: 1px solid #888; }
+  .profiler-results.profiler-bottom {
+    bottom: 0px; }
+    .profiler-results.profiler-bottom.profiler-left {
+      left: 0px; }
+      .profiler-results.profiler-bottom.profiler-left.profiler-no-controls .profiler-totals, .profiler-results.profiler-bottom.profiler-left.profiler-no-controls .profiler-result:first-child .profiler-button,
+      .profiler-results.profiler-bottom.profiler-left .profiler-controls {
+        border-top-right-radius: 10px; }
+      .profiler-results.profiler-bottom.profiler-left .profiler-button,
+      .profiler-results.profiler-bottom.profiler-left .profiler-controls {
+        border-right: 1px solid #888; }
+    .profiler-results.profiler-bottom.profiler-right {
+      right: 0px; }
+      .profiler-results.profiler-bottom.profiler-right.profiler-no-controls .profiler-totals, .profiler-results.profiler-bottom.profiler-right.profiler-no-controls .profiler-result:first-child .profiler-button,
+      .profiler-results.profiler-bottom.profiler-right .profiler-controls {
+        border-top-left-radius: 10px; }
+      .profiler-results.profiler-bottom.profiler-right .profiler-button,
+      .profiler-results.profiler-bottom.profiler-right .profiler-controls {
+        border-left: 1px solid #888; }
+  .profiler-results .profiler-button,
+  .profiler-results .profiler-controls {
+    display: none;
+    z-index: 2147483640;
+    border-bottom: 1px solid #888;
+    background-color: #fff;
+    padding: 4px 7px;
+    text-align: right;
+    cursor: pointer; }
+    .profiler-results .profiler-button.profiler-button-active,
+    .profiler-results .profiler-controls.profiler-button-active {
+      background-color: maroon; }
+      .profiler-results .profiler-button.profiler-button-active .profiler-number,
+      .profiler-results .profiler-button.profiler-button-active .profiler-nuclear,
+      .profiler-results .profiler-button.profiler-button-active .profiler-name,
+      .profiler-results .profiler-controls.profiler-button-active .profiler-number,
+      .profiler-results .profiler-controls.profiler-button-active .profiler-nuclear,
+      .profiler-results .profiler-controls.profiler-button-active .profiler-name {
+        color: #fff;
+        font-weight: bold; }
+      .profiler-results .profiler-button.profiler-button-active .profiler-unit,
+      .profiler-results .profiler-controls.profiler-button-active .profiler-unit {
+        color: #fff;
+        font-weight: normal; }
+  .profiler-results .profiler-totals .profiler-reqs {
+    font-family: Consolas, monospace, serif;
+    font-size: 10px;
+    margin-left: 6px; }
+    .profiler-results .profiler-totals .profiler-reqs:before {
+      font-family: Consolas, monospace, serif;
+      content: "×";
+      margin-right: 1px; }
+  .profiler-results .profiler-controls {
+    display: block;
+    font-size: 12px;
+    font-family: Consolas, monospace, serif;
+    cursor: default;
+    text-align: center; }
+    .profiler-results .profiler-controls span {
+      border-right: 1px solid #767676;
+      padding-right: 5px;
+      margin-right: 5px;
+      cursor: pointer; }
+    .profiler-results .profiler-controls span:last-child {
+      border-right: none; }
+  .profiler-results .profiler-popup {
+    display: none;
+    z-index: 2147483641;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    padding: 5px 10px;
+    text-align: left;
+    line-height: 18px;
+    overflow: auto;
+    max-width: 800px;
+    box-shadow: 0px 1px 15px #555; }
+    .profiler-results .profiler-popup .profiler-info {
+      margin-bottom: 3px;
+      padding-bottom: 2px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      width: inherit; }
+      .profiler-results .profiler-popup .profiler-info .profiler-name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: left;
+        white-space: nowrap;
+        font-size: 110%;
+        font-weight: bold;
+        padding-right: 10px; }
+        .profiler-results .profiler-popup .profiler-info .profiler-name .profiler-overall-duration {
+          display: none; }
+      .profiler-results .profiler-popup .profiler-info .profiler-server-time {
+        font-size: 95%; }
+    .profiler-results .profiler-popup .profiler-timings th,
+    .profiler-results .profiler-popup .profiler-timings td {
+      padding-left: 6px;
+      padding-right: 6px; }
+    .profiler-results .profiler-popup .profiler-timings th {
+      font-size: 95%;
+      padding-bottom: 3px; }
+    .profiler-results .profiler-popup .profiler-timings .profiler-label {
+      max-width: 275px; }
+  .profiler-results .profiler-queries {
+    display: none;
+    z-index: 2147483643;
+    position: absolute;
+    overflow-y: auto;
+    overflow-x: auto;
+    background-color: #fff; }
+    .profiler-results .profiler-queries th {
+      font-size: 17px; }
+  .profiler-results.profiler-min .profiler-result {
+    display: none; }
+  .profiler-results.profiler-min .profiler-controls span {
+    display: none; }
+  .profiler-results.profiler-min .profiler-controls .profiler-min-max {
+    border-right: none;
+    padding: 0px;
+    margin: 0px; }
+  .profiler-results .profiler-more-actions {
+    float: left; }
+  @media print {
+    .profiler-results {
+      display: none; } }
+.profiler-queries-bg {
+  z-index: 2147483642;
+  display: none;
+  background: #000;
+  opacity: 0.7;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  min-width: 100%; }
+
+.profiler-result-full .profiler-result {
+  width: 950px;
+  margin: 30px auto; }
+  .profiler-result-full .profiler-result .profiler-button {
+    display: none; }
+  .profiler-result-full .profiler-result .profiler-popup .profiler-info {
+    font-size: 25px;
+    border-bottom: 1px solid #767676;
+    padding-bottom: 3px;
+    margin-bottom: 25px; }
+    .profiler-result-full .profiler-result .profiler-popup .profiler-info .profiler-overall-duration {
+      padding-right: 20px;
+      font-size: 80%;
+      color: #888; }
+  .profiler-result-full .profiler-result .profiler-popup .profiler-timings td,
+  .profiler-result-full .profiler-result .profiler-popup .profiler-timings th {
+    padding-left: 8px;
+    padding-right: 8px; }
+  .profiler-result-full .profiler-result .profiler-popup .profiler-timings th {
+    padding-bottom: 7px; }
+  .profiler-result-full .profiler-result .profiler-popup .profiler-timings td {
+    font-size: 14px;
+    padding-bottom: 4px; }
+    .profiler-result-full .profiler-result .profiler-popup .profiler-timings td:first-child {
+      padding-left: 10px; }
+  .profiler-result-full .profiler-result .profiler-popup .profiler-timings .profiler-label {
+    max-width: 550px; }
+  .profiler-result-full .profiler-result .profiler-queries {
+    margin: 25px 0; }
+    .profiler-result-full .profiler-result .profiler-queries table {
+      width: 100%; }
+    .profiler-result-full .profiler-result .profiler-queries th {
+      font-size: 16px;
+      color: #555;
+      line-height: 20px; }
+    .profiler-result-full .profiler-result .profiler-queries td {
+      padding: 15px 10px;
+      text-align: left; }
+    .profiler-result-full .profiler-result .profiler-queries .profiler-info div {
+      text-align: right;
+      margin-bottom: 5px; }
+
+@keyframes highlight-in {
+  0% {
+    background: #ffffbb; }
+  100% {
+    background: #fff; } }
+
+.mp-snapshots {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px; }
+  .mp-snapshots .snapshots-table thead {
+    background: #6a737c;
+    color: #ffffff; }
+  .mp-snapshots .snapshots-table th, .mp-snapshots .snapshots-table td {
+    padding: 5px 10px;
+    box-sizing: border-box; }
+    .mp-snapshots .snapshots-table th:not(.request-group), .mp-snapshots .snapshots-table td:not(.request-group) {
+      text-align: center; }
+  .mp-snapshots .snapshots-table th {
+    border-right: 1px solid #ffffff; }
+
+</style>
         <script type="text/javascript"> var profiler = {"id":"82ms08h7h4yoa0wrw80d","name":"/lab/posts/fast","started":23998186,"started_at":1788176655172,"machine_name":"localhost","level":0,"user":"::1","has_user_viewed":true,"client_timings":{"redirect_count":null,"timings":[{"Name":"Connect","Start":1,"Duration":0},{"Name":"Domain Lookup","Start":1,"Duration":0},{"Name":"Response","Start":27,"Duration":1},{"Name":"Request","Start":4,"Duration":0},{"Name":"Navigation","Start":0,"Duration":0},{"Name":"Load Event","Start":56,"Duration":0},{"Name":"Fetch","Start":1,"Duration":0},{"Name":"Dom Content Loaded Event","Start":42,"Duration":0},{"Name":"domLoading","Start":31,"Duration":-1},{"Name":"domComplete","Start":56,"Duration":-1},{"Name":"domInteractive","Start":42,"Duration":-1}]},"duration_milliseconds":21.557453997957055,"has_trivial_timings":true,"has_all_trivial_timings":false,"trivial_duration_threshold_milliseconds":2,"head":null,"sql_count":4,"cached_sql_count":0,"duration_milliseconds_in_sql":8.268608999060234,"has_sql_timings":true,"has_duplicate_sql_timings":false,"executed_readers":0,"executed_scalars":0,"executed_non_queries":0,"custom_timing_names":[],"custom_timing_stats":{},"custom_fields":{},"has_flamegraph":false,"request_method":"GET","request_path":"/lab/posts/fast","root":{"id":"oc23cluyil7u3hsar9ws","name":"GET http://localhost:3000/lab/posts/fast","duration_milliseconds":21.557453997957055,"duration_without_children_milliseconds":2.8373469976941124,"start_milliseconds":0,"parent_timing_id":null,"children":[{"id":"w143m4s7yyni9g6v7v8s","name":"Executing: lab::posts::fast#index","duration_milliseconds":18.720107000262942,"duration_without_children_milliseconds":1.966048999747727,"start_milliseconds":2,"parent_timing_id":"oc23cluyil7u3hsar9ws","children":[{"id":"z9s8cpwojs3fddvmfk7n","name":"Rendering: fast/index.html.erb","duration_milliseconds":16.754058000515215,"duration_without_children_milliseconds":16.754058000515215,"start_milliseconds":3.245941999484785,"parent_timing_id":"w143m4s7yyni9g6v7v8s","children":[],"has_children":false,"key_values":null,"has_sql_timings":true,"has_duplicate_sql_timings":false,"trivial_duration_threshold_milliseconds":2,"sql_timings":[{"execute_type":3,"formatted_command_string":"SELECT &quot;posts&quot;.* FROM &quot;posts&quot; ORDER BY &quot;posts&quot;.&quot;published_at&quot; DESC LIMIT 30 /*action=&#39;index&#39;,application=&#39;RmpLab&#39;,controller=&#39;fast&#39;*/","stack_trace_snippet":"app/views/lab/posts/fast/index.html.erb:9:in '_app_views_lab_posts_fast_index_html_erb___3575426994455869627_6576'\n","start_milliseconds":4.003447998489719,"duration_milliseconds":7.111933002306614,"first_fetch_duration_milliseconds":6.996552001510281,"parameters":null,"row_count":30,"class_name":"Post","parent_timing_id":"z9s8cpwojs3fddvmfk7n","cached":null,"is_duplicate":false},{"execute_type":3,"formatted_command_string":"SELECT &quot;users&quot;.* FROM &quot;users&quot; WHERE &quot;users&quot;.&quot;id&quot; IN (2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030) /*action=&#39;index&#39;,application=&#39;RmpLab&#39;,controller=&#39;fast&#39;*/","stack_trace_snippet":"app/views/lab/posts/fast/index.html.erb:9:in '_app_views_lab_posts_fast_index_html_erb___3575426994455869627_6576'\n","start_milliseconds":13.795401003211737,"duration_milliseconds":0.3609239975048695,"first_fetch_duration_milliseconds":0.20459899678826332,"parameters":null,"row_count":30,"class_name":"User","parent_timing_id":"z9s8cpwojs3fddvmfk7n","cached":null,"is_duplicate":false},{"execute_type":3,"formatted_command_string":"SELECT &quot;comments&quot;.* FROM &quot;comments&quot; WHERE &quot;comments&quot;.&quot;post_id&quot; IN (144001, 144002, 144003, 144004, 144005, 144006, 144007, 144008, 144009, 144010, 144011, 144012, 144013, 144014, 144015, 144016, 144017, 144018, 144019, 144020, 144021, 144022, 144023, 144024, 144025, 144026, 144027, 144028, 144029, 144030) /*action=&#39;index&#39;,application=&#39;RmpLab&#39;,controller=&#39;fast&#39;*/","stack_trace_snippet":"app/views/lab/posts/fast/index.html.erb:9:in '_app_views_lab_posts_fast_index_html_erb___3575426994455869627_6576'\n","start_milliseconds":16.807534000865417,"duration_milliseconds":0.5975229978503194,"first_fetch_duration_milliseconds":0.1924659991345834,"parameters":null,"row_count":60,"class_name":"Comment","parent_timing_id":"z9s8cpwojs3fddvmfk7n","cached":null,"is_duplicate":false},{"execute_type":3,"formatted_command_string":"SELECT &quot;users&quot;.* FROM &quot;users&quot; WHERE &quot;users&quot;.&quot;id&quot; IN (2001, 2340, 2279, 2218, 2157, 2096, 2035, 2374, 2313, 2252, 2191, 2130, 2069, 2008, 2347, 2286, 2225, 2164, 2103, 2042, 2381, 2320, 2259, 2198, 2137, 2076, 2015, 2354, 2293, 2232) /*action=&#39;index&#39;,application=&#39;RmpLab&#39;,controller=&#39;fast&#39;*/","stack_trace_snippet":"app/views/lab/posts/fast/index.html.erb:9:in '_app_views_lab_posts_fast_index_html_erb___3575426994455869627_6576'\n","start_milliseconds":18.899762999120867,"duration_milliseconds":0.19822900139843114,"first_fetch_duration_milliseconds":0.10023700087913312,"parameters":null,"row_count":30,"class_name":"User","parent_timing_id":"z9s8cpwojs3fddvmfk7n","cached":null,"is_duplicate":false}],"sql_timings_duration_milliseconds":8.268608999060234,"is_trivial":false,"is_root":false,"depth":2,"executed_readers":0,"executed_scalars":0,"executed_non_queries":0,"custom_timing_stats":{},"custom_timings":{}}],"has_children":true,"key_values":null,"has_sql_timings":false,"has_duplicate_sql_timings":false,"trivial_duration_threshold_milliseconds":2,"sql_timings":[],"sql_timings_duration_milliseconds":0.0,"is_trivial":false,"is_root":false,"depth":1,"executed_readers":0,"executed_scalars":0,"executed_non_queries":0,"custom_timing_stats":{},"custom_timings":{}}],"has_children":true,"key_values":null,"has_sql_timings":false,"has_duplicate_sql_timings":false,"trivial_duration_threshold_milliseconds":2,"sql_timings":[],"sql_timings_duration_milliseconds":0,"is_trivial":false,"is_root":true,"depth":0,"executed_readers":0,"executed_scalars":0,"executed_non_queries":0,"custom_timing_stats":{},"custom_timings":{}},"started_formatted":"/Date(1788176655172)/"}; </script>
         <script async="" nonce="" type="text/javascript" id="mini-profiler" src="./_lab_posts_fast (21.6 ms) - Profiling Results_files/includes.js" data-css-url="/mini-profiler-resources/includes.css?v=0ab236f63a9cce6719807f4cd6470f29" data-version="0ab236f63a9cce6719807f4cd6470f29" data-path="/mini-profiler-resources/" data-current-id="" data-ids="[]" data-horizontal-position="right" data-vertical-position="top" data-trivial="false" data-children="false" data-max-traces="20" data-controls="false" data-total-sql-count="false" data-authorized="true" data-toggle-shortcut="alt+p" data-start-hidden="false" data-collapse-results="true" data-html-container="body" data-hidden-custom-fields="" data-turbo-permanent="false"></script>
 
