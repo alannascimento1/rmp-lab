@@ -898,8 +898,14 @@ document.addEventListener("DOMContentLoaded", function () {
   var items = [
     { el: ths[0], t:"EVENT — o que foi executado",
       d:"Cada linha é uma medição do request: a passagem pelo Rack (GET), a action do controller e o render da view. A indentação indica aninhamento — a action roda dentro do request, o render dentro da action." },
-    { el: ths[1], t:"DURATION (MS) — o tempo de cada linha da tabela",
-      d:"Esta tabela tem três linhas — <code>GET</code>, <code>Executing</code> e <code>Rendering</code> — e cada uma mede um pedaço do código. Duration diz quanto tempo o pedaço <b>daquela linha</b> rodou, sem contar as linhas de baixo, que rodam dentro dele. Na prática: a requisição durou 129,6 ms, mas o duration do GET marca só 3,8 — os outros 125,8 já estão contados nas linhas Executing e Rendering. Para que serve: o maior número da coluna (123,6, no Rendering) mostra onde o tempo foi gasto de verdade. E a soma bate o total: 3,8 + 2,2 + 123,6 = 129,6." },
+    { el: ths[1], t:"DURATION (MS) — quem gastou o quê",
+      d:"Esta coluna divide os 129,6 ms da requisição entre as três linhas — cada milissegundo cai em uma linha só:" +
+        "<span class='calc'>  3,8  GET: rota, middlewares, resposta\n" +
+        "  2,2  Executing: código do controller\n" +
+        "<u>123,6  Rendering: a view montando o HTML</u>\n" +
+        "-----\n" +
+        "129,6  total da requisição</span>" +
+        "É a resposta direta de <b>onde o tempo foi gasto</b>: aqui, quase tudo foi a view montando o HTML — com as 120 consultas no meio. Por isso o número do GET é pequeno: o trabalho dele foi só receber, rotear e responder; o resto aconteceu nas linhas de dentro e está contado nelas." },
     { el: ths[2], t:"WITH CHILDREN (MS) — a definição",
       d:"O tempo de relógio da linha, do início ao fim, incluindo tudo que rodou dentro dela. Definição da gem: <i>duration of this step and its children</i>. Na linha do GET é a requisição inteira — o mesmo número do badge. Relação com a coluna ao lado: with children = duration da linha + with children dos filhos." },
     { el: ths[3], t:"FROM START (MS) — a definição",
