@@ -898,8 +898,8 @@ document.addEventListener("DOMContentLoaded", function () {
   var items = [
     { el: ths[0], t:"EVENT — o que foi executado",
       d:"Cada linha é uma medição do request: a passagem pelo Rack (GET), a action do controller e o render da view. A indentação indica aninhamento — a action roda dentro do request, o render dentro da action." },
-    { el: ths[1], t:"DURATION (MS) — a definição",
-      d:"É o <i>self time</i>: cada instante da requisição pertence à linha mais interna que estava executando naquele momento, e duration soma os instantes desta linha. Definição da gem: <i>duration of this step without any children's durations</i>. Duas consequências: a coluna soma exatamente o tempo total, sem contar nada duas vezes; e o maior valor dela aponta o gargalo." },
+    { el: ths[1], t:"DURATION (MS) — o tempo só desta linha",
+      d:"Quanto tempo o código <b>da própria linha</b> passou rodando — sem contar as linhas internas a ela, que têm tempo próprio. Exemplo com a primeira linha: a requisição inteira durou 129,6 ms, mas o duration do GET é só 3,8 — porque nos outros 125,8 quem estava rodando era a action e a view, e esse tempo aparece nas linhas <b>delas</b>. Para que serve: o maior número da coluna mostra onde o tempo foi gasto de verdade (aqui, 123,6 no render). E ela soma o total exato: 3,8 + 2,2 + 123,6 = 129,6." },
     { el: ths[2], t:"WITH CHILDREN (MS) — a definição",
       d:"O tempo de relógio da linha, do início ao fim, incluindo tudo que rodou dentro dela. Definição da gem: <i>duration of this step and its children</i>. Na linha do GET é a requisição inteira — o mesmo número do badge. Relação com a coluna ao lado: with children = duration da linha + with children dos filhos." },
     { el: ths[3], t:"FROM START (MS) — a definição",
