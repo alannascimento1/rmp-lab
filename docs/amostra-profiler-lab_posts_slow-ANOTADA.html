@@ -1036,7 +1036,7 @@ document.addEventListener("DOMContentLoaded", function () {
   canvas.id = "anot-draw";
   document.body.appendChild(canvas);
   var pen = document.createElement("div");
-  pen.id = "anot-pen"; pen.textContent = "modo caneta — D sai, C limpa";
+  pen.id = "anot-pen"; pen.textContent = "modo marcação — arraste um retângulo; D sai, C limpa";
   document.body.appendChild(pen);
 
   var ctx = canvas.getContext("2d");
@@ -1056,22 +1056,12 @@ document.addEventListener("DOMContentLoaded", function () {
     raf = 0;
     ctx.clearRect(0, 0, innerWidth, innerHeight);
     var sx = scrollX, sy = scrollY;
-    strokes.forEach(function (pts) {
-      if (pts.length < 2) {
-        ctx.beginPath();
-        ctx.arc(pts[0][0] - sx, pts[0][1] - sy, 1.5, 0, 7);
-        ctx.fillStyle = "#1fa87e"; ctx.fill();
-        return;
-      }
+    strokes.forEach(function (r) {
+      var x = Math.min(r.x1, r.x2) - sx, y = Math.min(r.y1, r.y2) - sy;
+      var w = Math.abs(r.x2 - r.x1), h = Math.abs(r.y2 - r.y1);
+      if (w < 3 && h < 3) return;
       ctx.beginPath();
-      ctx.moveTo(pts[0][0] - sx, pts[0][1] - sy);
-      for (var i = 1; i < pts.length - 1; i++) {
-        var mx = (pts[i][0] + pts[i + 1][0]) / 2 - sx;
-        var my = (pts[i][1] + pts[i + 1][1]) / 2 - sy;
-        ctx.quadraticCurveTo(pts[i][0] - sx, pts[i][1] - sy, mx, my);
-      }
-      var l = pts[pts.length - 1];
-      ctx.lineTo(l[0] - sx, l[1] - sy);
+      if (ctx.roundRect) ctx.roundRect(x, y, w, h, 5); else ctx.rect(x, y, w, h);
       ctx.stroke();
     });
   }
@@ -1084,16 +1074,18 @@ document.addEventListener("DOMContentLoaded", function () {
   canvas.addEventListener("pointerdown", function (e) {
     if (!drawing) return;
     canvas.setPointerCapture(e.pointerId);
-    cur = [[e.pageX, e.pageY]]; strokes.push(cur); e.preventDefault();
+    cur = { x1: e.pageX, y1: e.pageY, x2: e.pageX, y2: e.pageY };
+    strokes.push(cur); e.preventDefault();
   });
   canvas.addEventListener("pointermove", function (e) {
     if (!drawing || !cur) return;
-    var evs = e.getCoalescedEvents ? e.getCoalescedEvents() : [e];
-    for (var i = 0; i < evs.length; i++) cur.push([evs[i].pageX, evs[i].pageY]);
-    schedule();
+    cur.x2 = e.pageX; cur.y2 = e.pageY; schedule();
   });
   ["pointerup", "pointercancel"].forEach(function (ev) {
-    canvas.addEventListener(ev, function () { cur = null; });
+    canvas.addEventListener(ev, function () {
+      if (cur && Math.abs(cur.x2 - cur.x1) < 3 && Math.abs(cur.y2 - cur.y1) < 3) strokes.pop();
+      cur = null; schedule();
+    });
   });
   window.addEventListener("scroll", function () { if (strokes.length) schedule(); }, { passive: true });
   window.addEventListener("resize", function () { sizeCanvas(); schedule(); });
