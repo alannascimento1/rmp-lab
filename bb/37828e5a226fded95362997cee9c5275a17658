@@ -1,0 +1,19 @@
+config/initializers/rack_mini_profiler.rb
+  s_93ea2ba7d2a721::t_db49acb7c4e4b5 27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "bb37828e5a226fded95362997cee9c5275a17658",
+  "prompts": {},
+  "sessions": {
+    "s_93ea2ba7d2a721": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2568658a-6053-4988-9865-2dd6fa8a2213",
+        "model": "claude-fable-5"
+      },
+      "human_author": "alan <nascimentoalankst@gmail.com>"
+    }
+  }
+}
