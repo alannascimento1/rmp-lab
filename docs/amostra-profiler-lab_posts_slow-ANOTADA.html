@@ -1000,10 +1000,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-    var w = colX + 360, hh = Math.max(prev + 40, document.body.scrollHeight);
-    layer.style.width = w + "px"; layer.style.height = hh + "px";
-    svg.setAttribute("width", w); svg.setAttribute("height", hh);
-    document.body.style.minWidth = (focus === null) ? "" : (w + 30) + "px";
+    layer.style.width = "0"; layer.style.height = "0";
   }
 
   var tgl = document.querySelector(".profiler-toggle-duration-with-children");
