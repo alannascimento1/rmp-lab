@@ -867,6 +867,13 @@ app/views/lab/posts/slow/index.html.erb:10:in '_app_views_lab_posts_slow_index_h
   .anot-box .calc i { color:#8aa79c; font-style:normal; }
   .anot-box .calc u { text-decoration:none; color:#2ecc9a; font-weight:700; }
   .anot-hi { }
+  #anot-draw { position:absolute; left:0; top:0; z-index:9998; pointer-events:none; }
+  body.anot-drawing #anot-draw { pointer-events:auto; cursor:crosshair; }
+  body.anot-drawing { user-select:none; }
+  #anot-pen { position:fixed; right:14px; bottom:12px; z-index:10001; display:none;
+              background:#111a17; color:#2ecc9a; border:1px solid #2f6d5b; border-radius:999px;
+              padding:4px 12px; font:12px -apple-system,Segoe UI,Roboto,sans-serif; }
+  body.anot-drawing #anot-pen { display:block; }
   .profiler-result .profiler-timings .profiler-duration-with-children { display:table-cell !important; }
   body.anot-hide-children .profiler-result .profiler-timings .profiler-duration-with-children { display:none !important; }
 </style>
@@ -1016,6 +1023,51 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
     document.body.classList.toggle("anot-hide-children");
     setTimeout(place, 0);
+  });
+
+  // ---- modo caneta: D liga/desliga, C limpa, Esc sai ----
+  var canvas = document.createElement("canvas");
+  canvas.id = "anot-draw";
+  document.body.appendChild(canvas);
+  var pen = document.createElement("div");
+  pen.id = "anot-pen"; pen.textContent = "modo caneta — D sai, C limpa";
+  document.body.appendChild(pen);
+  var ctx = null, drawing = false, stroking = false;
+
+  function sizeCanvas() {
+    var w = document.documentElement.scrollWidth, h = document.documentElement.scrollHeight;
+    if (canvas.width !== w || canvas.height !== h) {
+      var old = ctx ? ctx.getImageData(0, 0, canvas.width || 1, canvas.height || 1) : null;
+      canvas.width = w; canvas.height = h;
+      ctx = canvas.getContext("2d");
+      if (old) ctx.putImageData(old, 0, 0);
+      ctx.strokeStyle = "#1fa87e"; ctx.lineWidth = 3;
+      ctx.lineCap = "round"; ctx.lineJoin = "round";
+    }
+  }
+  function toggleDraw(on) {
+    drawing = (on !== undefined) ? on : !drawing;
+    document.body.classList.toggle("anot-drawing", drawing);
+    if (drawing) sizeCanvas();
+  }
+  canvas.addEventListener("mousedown", function (e) {
+    if (!drawing) return;
+    stroking = true; sizeCanvas();
+    ctx.beginPath(); ctx.moveTo(e.pageX, e.pageY); e.preventDefault();
+  });
+  canvas.addEventListener("mousemove", function (e) {
+    if (!drawing || !stroking) return;
+    ctx.lineTo(e.pageX, e.pageY); ctx.stroke();
+  });
+  ["mouseup", "mouseleave"].forEach(function (ev) {
+    canvas.addEventListener(ev, function () { stroking = false; });
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.target && /INPUT|TEXTAREA/.test(e.target.tagName)) return;
+    var k = e.key.toLowerCase();
+    if (k === "d") { toggleDraw(); e.preventDefault(); }
+    else if (k === "c" && ctx) { ctx.clearRect(0, 0, canvas.width, canvas.height); }
+    else if (e.key === "Escape" && drawing) { toggleDraw(false); }
   });
 
   place();
