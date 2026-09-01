@@ -975,6 +975,23 @@ document.addEventListener("DOMContentLoaded", function () {
     b.style.cursor = "pointer";
     it.el.style.cursor = "pointer";
     it.el.addEventListener("click", function (e) {
+      if (e.ctrlKey || e.metaKey) {
+        // Ctrl+clique: comportamento original do rmp — pular para a lista de consultas
+        var link = (it.el.tagName === "A") ? it.el : it.el.closest("a");
+        if (link && link.classList.contains("profiler-queries-show")) {
+          e.preventDefault(); e.stopPropagation();
+          var row = link.closest("tr");
+          var id = row && row.getAttribute("data-timing-id");
+          var alvo = (id && document.querySelector('.profiler-queries tr[data-timing-id="' + id + '"]'))
+                     || document.querySelector(".profiler-queries");
+          alvo.scrollIntoView({ behavior: "smooth", block: "start" });
+          if (alvo.classList) {
+            alvo.classList.add("higlight-animate");
+            setTimeout(function () { alvo.classList.remove("higlight-animate"); }, 3000);
+          }
+        }
+        return;
+      }
       e.stopPropagation();
       if (it.el.tagName === "A" || it.el.closest("a")) e.preventDefault();
       focus = (focus === i ? null : i); place();
