@@ -24,7 +24,7 @@ Rack::MiniProfiler.config.tap do |config|
   config.enable_advanced_debugging_tools = true
 
   # Requests que nao valem a pena instrumentar (assets, healthcheck).
-  config.skip_paths = [ "/assets", "/up", "/favicon.ico" ]
+  config.skip_paths = [ "/assets", "/up", "/favicon.ico", "/lab_pen.js" ]
 
   # Qualquer query/step acima deste limite ganha backtrace clicavel no painel.
   # Baixe para 0 se quiser backtrace de tudo (fica verboso).
