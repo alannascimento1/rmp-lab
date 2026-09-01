@@ -891,6 +891,14 @@ document.addEventListener("DOMContentLoaded", function () {
   var items = [
     { el: ths[0], t:"EVENT — o que foi executado",
       d:"Cada linha é uma medição do request: a passagem pelo Rack (GET), a action do controller e o render da view. A indentação indica aninhamento — a action roda dentro do request, o render dentro da action." },
+    { el: ths[1], t:"DURATION (MS) — a definição",
+      d:"É o <i>self time</i>: cada instante da requisição pertence à linha mais interna que estava executando naquele momento, e duration soma os instantes desta linha. Definição da gem: <i>duration of this step without any children's durations</i>. Duas consequências: a coluna soma exatamente o tempo total, sem contar nada duas vezes; e o maior valor dela aponta o gargalo." },
+    { el: ths[2], t:"WITH CHILDREN (MS) — a definição",
+      d:"O tempo de relógio da linha, do início ao fim, incluindo tudo que rodou dentro dela. Definição da gem: <i>duration of this step and its children</i>. Na linha do GET é a requisição inteira — o mesmo número do badge. Relação com a coluna ao lado: with children = duration da linha + with children dos filhos." },
+    { el: ths[3], t:"FROM START (MS) — a definição",
+      d:"O momento em que a linha começou, contado da chegada da requisição ao servidor. Definição da gem: <i>time elapsed since profiling started</i>. Lendo de cima para baixo vira a linha do tempo: GET em +0,0, action em +3,0, view em +4,4. Um salto grande entre o fim de uma linha e o início da próxima indica tempo sem linha própria — caso para um step customizado." },
+    { el: ths[4], t:"QUERY TIME (MS) — a definição",
+      d:"Duas informações por linha: quantas consultas SQL rodaram nela (o número azul, clicável — abre a lista com backtrace) e o tempo somado dessas consultas — <i>aggregate duration of all queries in this step (excludes children)</i>. Comparando com duration: o que não é SQL é Ruby. Aqui: 123,6 ms de render, só 12,9 de banco." },
     { el: cell(0, ".profiler-duration:not(.profiler-duration-with-children):not(.time-from-start)"), t:"DURATION — self time (tempo próprio)",
       d:"Cada instante dos 129,6 ms pertence a exatamente uma linha: <b>a mais interna que estava executando naquele momento</b>. Duration soma os instantes que pertencem a esta linha — o que em profiling se chama <i>self time</i>. Enquanto a action ou a view rodavam, o relógio contava para elas; para o GET sobrou só o que rodou fora das duas:" +
         "<span class='calc'>  129,6 ms  <i>total do GET</i>\n" +
