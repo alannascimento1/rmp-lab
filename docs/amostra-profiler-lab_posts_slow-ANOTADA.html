@@ -998,13 +998,6 @@ document.addEventListener("DOMContentLoaded", function () {
       b.style.left = x + "px"; b.style.top = y + "px";
       prev = y + h;
 
-      var by = Math.min(Math.max(o.ty, y + 12), y + h - 12);
-      var p = document.createElementNS(NS, "path");
-      var mid = (o.tx + x) / 2;
-      p.setAttribute("d", "M " + x + " " + by + " C " + mid + " " + by + ", " + mid + " " + o.ty + ", " + (o.tx + 6) + " " + o.ty);
-      p.setAttribute("fill", "none"); p.setAttribute("stroke", "#2ecc9a");
-      p.setAttribute("stroke-width", "1.6"); p.setAttribute("marker-end", "url(#anot-arrow)");
-      svg.appendChild(p);
     });
 
     var w = colX + 360, hh = Math.max(prev + 40, document.body.scrollHeight);
