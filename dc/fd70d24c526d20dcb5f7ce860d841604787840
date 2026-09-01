@@ -1,0 +1,21 @@
+app/views/layouts/application.html.erb
+  s_93ea2ba7d2a721::t_58ab0143fb9ce5 9
+public/lab_pen.js
+  s_93ea2ba7d2a721::t_a1243e09f1f819 1-79
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "dcfd70d24c526d20dcb5f7ce860d841604787840",
+  "prompts": {},
+  "sessions": {
+    "s_93ea2ba7d2a721": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2568658a-6053-4988-9865-2dd6fa8a2213",
+        "model": "claude-fable-5"
+      },
+      "human_author": "alan <nascimentoalankst@gmail.com>"
+    }
+  }
+}
