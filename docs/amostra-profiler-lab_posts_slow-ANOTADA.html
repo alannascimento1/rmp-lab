@@ -890,6 +890,8 @@ document.addEventListener("DOMContentLoaded", function () {
   var plain = qrows.filter(function (r) { return r.querySelector(".profiler-stack-trace"); });
   var cachedTag = q(".cached");
   var gaps = document.querySelectorAll(".profiler-gap-info");
+  var cths = document.querySelectorAll(".profiler-client-timings thead th");
+  var qths = document.querySelectorAll(".profiler-queries thead th");
 
   // marca as query log tags (/*action=...*/) da primeira consulta para poder apontar
   var pre = plain[0] ? plain[0].querySelector("pre.prettyprint") : null;
@@ -939,8 +941,16 @@ document.addEventListener("DOMContentLoaded", function () {
       d:"Fechamento da requisição: total de consultas, quantas o query cache respondeu da memória e a fatia do tempo que foi banco." },
     { el: q(".profiler-toggle-duration-with-children"), t:"show time with children",
       d:"Liga e desliga a coluna with children — quanto durou (with children) contra quem gastou (duration)." },
-    { el: q(".profiler-client-timings tbody tr td"), t:"CLIENT EVENT — medido no navegador",
-      d:"Esta tabela usa o relógio do browser: resposta em +136 ms, página carregada em +156. O tempo que o usuário sente é maior que o do servidor." },
+    { el: cths[0], t:"CLIENT EVENT — medido no navegador",
+      d:"Esta tabela não vem do servidor: é o navegador medindo, pela Navigation Timing API, o que ele mesmo viveu — com o mesmo cronômetro (zero = início da requisição). Só a linha Response aparece porque os outros eventos foram triviais (&lt;2 ms) e ficam ocultos; o link <code>show trivial</code> revela todos (Connect, Request, DOM, Load...)." },
+    { el: cths[1], t:"DURATION (MS) — no navegador",
+      d:"Quanto o evento durou, quando é um intervalo: Response levou 1,0 ms — o tempo baixando a resposta. Eventos com 0,0 são marcos instantâneos (um ponto no tempo, não um intervalo)." },
+    { el: cths[2], t:"FROM START (MS) — no navegador",
+      d:"Quando o evento aconteceu: Response em +136,0 significa que a resposta chegou 136 ms após o início. O servidor terminou em 129,6 — a diferença é rede e fila. Na medição completa, a página só terminou de carregar em +156: o tempo que o usuário sente é maior que o do servidor." },
+    { el: qths[0], t:"Legenda: a coluna esquerda de cada consulta",
+      d:"Cinco dados empilhados, nesta ordem: <b>step</b> (em que linha da tabela de cima a consulta rodou — ex.: Rendering), <b>time from start</b> (o T+, quando ela começou), <b>query type</b> (Reader = leitura), <b>duration</b> (quanto levou) e <b>records</b> (quantos registros instanciou — ex.: Post: 30)." },
+    { el: qths[1], t:"Legenda: a coluna direita de cada consulta",
+      d:"Duas partes: o <b>call stack</b> (o caminho do código até a linha exata que disparou a consulta — a prova de origem) e a <b>query</b>, o SQL como foi executado, com as tags <code>/*action=...*/</code> que o Rails carimba." },
     { el: gaps[0], t:"GAP — 3,00 ms sem SQL",
       d:"As faixas cinzas são intervalos entre consultas: nenhum SQL rodando, o Ruby trabalhando. Num N+1, os gaps somados passam o tempo de banco." },
     { el: plain[0] ? plain[0].querySelector(".profiler-info") : null, t:"A coluna da esquerda",
