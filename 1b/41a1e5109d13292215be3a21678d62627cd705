@@ -1,0 +1,21 @@
+app/views/layouts/application.html.erb
+  s_93ea2ba7d2a721::t_2ec0aac7d18a4c 4
+app/views/lab/home/index.html.erb
+  s_93ea2ba7d2a721::t_2ec0aac7d18a4c 2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "1b41a1e5109d13292215be3a21678d62627cd705",
+  "prompts": {},
+  "sessions": {
+    "s_93ea2ba7d2a721": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2568658a-6053-4988-9865-2dd6fa8a2213",
+        "model": "claude-fable-5"
+      },
+      "human_author": "alan <nascimentoalankst@gmail.com>"
+    }
+  }
+}
