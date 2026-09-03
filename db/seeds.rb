@@ -60,7 +60,8 @@ puts "criando #{COMMENTS} comentarios..."
 COMMENTS.times.each_slice(5_000) do |slice|
   rows = slice.map do |i|
     { post_id: post_ids[(i * 13) % post_ids.size],
-      user_id: user_ids[(i * 7) % user_ids.size],
+      # soma a rodada (i / posts) para os 2 comentarios de um post terem autores diferentes
+      user_id: user_ids[(i * 7 + i / post_ids.size) % user_ids.size],
       body: "Comentario #{i + 1}: faz sentido, mas ja' mediu antes de otimizar?",
       created_at: now - i.seconds, updated_at: now - i.seconds }
   end
