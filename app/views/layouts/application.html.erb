@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Laboratório Profiler</title>
+    <title>Laboratório rack mini profiler</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,7 +10,6 @@
   </head>
   <body>
     <nav>
-      <a class="brand" href="/">Laboratório Profiler</a>
       <section>
         <h4>1. N+1</h4>
         <%= link_to "ruim",  lab_posts_slow_index_path,       class: "bad" %>
