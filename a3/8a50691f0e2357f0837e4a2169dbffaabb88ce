@@ -1,0 +1,23 @@
+app/controllers/lab/posts/fast_controller.rb
+  s_93ea2ba7d2a721::t_e7d9fb1fc45d41 6
+app/views/lab/posts/fast/index.html.erb
+  s_93ea2ba7d2a721::t_f9fae5e0ca609f 4
+app/views/lab/shared/_post_card.html.erb
+  s_93ea2ba7d2a721::t_6f9fabd6e37b91 5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "a38a50691f0e2357f0837e4a2169dbffaabb88ce",
+  "prompts": {},
+  "sessions": {
+    "s_93ea2ba7d2a721": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2568658a-6053-4988-9865-2dd6fa8a2213",
+        "model": "claude-fable-5"
+      },
+      "human_author": "alan <nascimentoalankst@gmail.com>"
+    }
+  }
+}
