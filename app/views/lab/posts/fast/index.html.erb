@@ -1,8 +1,8 @@
 <h1>N+1 resolvido com includes</h1>
 
 <div class="hint">
-  Esta action usa <code>includes(:user, :comments)</code>.
-  O profiler deve mostrar poucas queries, independente de quantos posts aparecem.
+  Esta action usa <code>includes(:user)</code>.
+  O profiler deve mostrar 2 queries, independente de quantos posts aparecem.
 </div>
 
 <%= render partial: "lab/shared/post_card", collection: @posts, as: :post %>
