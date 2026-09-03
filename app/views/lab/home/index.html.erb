@@ -22,11 +22,11 @@
 <div class="scenarios">
   <div class="scenario">
     <h3>1. N+1</h3>
-    <p>Dezenas de <code>SELECT ... WHERE id = ?</code> duplicados viram 3 queries com <code>includes</code>.</p>
+    <p>Dezenas de <code>SELECT ... WHERE id = ?</code> duplicados viram 2 queries com <code>includes</code>.</p>
     <div class="pair">
-      <%= link_to lab_posts_slow_index_path, class: "btn bad" do %>ruim <small>~75ms</small><% end %>
+      <%= link_to lab_posts_slow_index_path, class: "btn bad" do %>ruim <small>~100ms</small><% end %>
       <span class="arrow">&rarr;</span>
-      <%= link_to lab_posts_fast_index_path, class: "btn good" do %>bom <small>~15ms</small><% end %>
+      <%= link_to lab_posts_fast_index_path, class: "btn good" do %>bom <small>~30ms</small><% end %>
     </div>
   </div>
   <div class="scenario">
