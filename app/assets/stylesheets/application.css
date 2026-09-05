@@ -16,8 +16,8 @@ nav {
 }
 nav .brand { display: block; font-weight: 700; font-size: 17px; margin-bottom: 22px; text-decoration: none; color: inherit; }
 nav section { margin-bottom: 18px; }
-nav h4 { margin: 0 0 6px; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; opacity: .55; font-weight: 600; }
-nav a { display: inline-block; margin-right: 8px; font-size: 14px; text-decoration: none; color: inherit; border-bottom: 1px solid currentColor; }
+nav h4 { margin: 0 0 6px; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; opacity: .85; font-weight: 700; }
+nav a { display: inline-block; margin-right: 8px; font-size: 15px; text-decoration: none; color: inherit; border-bottom: 1px solid currentColor; }
 nav a.bad  { color: #c0392b; }
 nav a.good { color: #1e8449; }
 main { flex: 1; padding: 28px 34px 80px; max-width: 900px; }
