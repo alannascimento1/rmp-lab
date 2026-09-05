@@ -1,0 +1,14 @@
+app/assets/stylesheets/application.css
+  h_247d0bda06f7bb 6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "800523f3a959535de981c966d0bffa2f6c044778",
+  "prompts": {},
+  "humans": {
+    "h_247d0bda06f7bb": {
+      "author": "alan <nascimentoalankst@gmail.com>"
+    }
+  }
+}
