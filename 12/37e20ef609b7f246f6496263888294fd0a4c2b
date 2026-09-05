@@ -1,0 +1,14 @@
+docs/benchmark-n-mais-um.html
+  h_247d0bda06f7bb 31-40,43,46-47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "1237e20ef609b7f246f6496263888294fd0a4c2b",
+  "prompts": {},
+  "humans": {
+    "h_247d0bda06f7bb": {
+      "author": "alan <nascimentoalankst@gmail.com>"
+    }
+  }
+}
