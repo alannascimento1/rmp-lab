@@ -1,0 +1,19 @@
+app/assets/stylesheets/application.css
+  s_93ea2ba7d2a721::t_a643f50a593d68 11,34,45,52,62
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "ab641e1e845d9f601f1e7ef0bd7791654242428b",
+  "prompts": {},
+  "sessions": {
+    "s_93ea2ba7d2a721": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2568658a-6053-4988-9865-2dd6fa8a2213",
+        "model": "unknown"
+      },
+      "human_author": "alan <nascimentoalankst@gmail.com>"
+    }
+  }
+}
