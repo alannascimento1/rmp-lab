@@ -27,7 +27,6 @@ RUNS.times do
   tempos[:fast] << medir(ROTAS[:fast])
 end
 media  = ->(a) { (a.sum / a.size).round(1) }
-mediana = ->(a) { s = a.sort; (s[(s.size - 1) / 2] + s[s.size / 2]) / 2.0 }
 
 linhas = (0...RUNS).map do |i|
   s, f = tempos[:slow][i], tempos[:fast][i]
@@ -72,7 +71,6 @@ html = <<~HTML
       </tbody>
       <tfoot>
         <tr><td>média</td><td class="num bad">#{ms}</td><td class="num good">#{mf}</td><td class="num">#{vezes}×</td></tr>
-        <tr><td>mediana</td><td class="num bad">#{mediana[tempos[:slow]].round(1)}</td><td class="num good">#{mediana[tempos[:fast]].round(1)}</td><td></td></tr>
       </tfoot>
     </table>
     <p class="veredito">Mesma página, mesmo dado: a versão com <code>includes</code> ficou <b>#{vezes}× mais rápida</b>.</p>
