@@ -1,0 +1,23 @@
+script/benchmark_n1.rb
+  s_93ea2ba7d2a721::t_e810b8cfc4a541 1-10,13-14,16-19,22,29-87
+  s_93ea2ba7d2a721::t_68ad3e976ffac6 11-12,15,20-21,23-28
+docs/benchmark-n-mais-um.html
+  s_93ea2ba7d2a721::t_68ad3e976ffac6 31-40,43-44,47
+  s_93ea2ba7d2a721::t_e810b8cfc4a541 1-30,41-42,45-46,48-50
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "a2f9884a63f2a65efd9a3c8391de81a512db4205",
+  "prompts": {},
+  "sessions": {
+    "s_93ea2ba7d2a721": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2568658a-6053-4988-9865-2dd6fa8a2213",
+        "model": "claude-fable-5"
+      },
+      "human_author": "alan <nascimentoalankst@gmail.com>"
+    }
+  }
+}
