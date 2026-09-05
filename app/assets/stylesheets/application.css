@@ -3,7 +3,7 @@
 @font-face { font-family: "OpenDyslexic"; src: url("OpenDyslexic-Italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
 @font-face { font-family: "OpenDyslexic"; src: url("OpenDyslexic-Bold-Italic.woff2") format("woff2"); font-weight: 700; font-style: italic; font-display: swap; }
 
-:root { color-scheme: light dark; }
+:root { color-scheme: light; }
 * { box-sizing: border-box; }
 body {
   margin: 0; display: flex; min-height: 100vh;
