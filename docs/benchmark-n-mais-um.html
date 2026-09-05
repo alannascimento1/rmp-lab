@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benchmark N+1</title>
+<style>
+  :root { color-scheme: light; }
+  body { margin: 0; background: #f3f5f4; color: #1f2b26;
+         font: 16px/1.6 ui-sans-serif, system-ui, sans-serif;
+         display: grid; place-items: center; min-height: 100vh; }
+  .box { background: #fff; border: 1px solid #d8dedb; border-radius: 10px;
+         padding: 28px 36px; max-width: 560px; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  .sub { color: #66716c; font-size: 14px; margin: 0 0 18px; }
+  table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+  th, td { padding: 6px 14px; text-align: right; border-bottom: 1px solid #e4e8e6; }
+  th { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: #66716c; }
+  td:first-child, th:first-child { text-align: left; }
+  .bad  { color: #c0392b; } .good { color: #1e8449; }
+  tfoot td { font-weight: 700; border-top: 2px solid #1f2b26; border-bottom: 0; }
+  .veredito { margin: 18px 0 0; font-size: 15px; }
+  .veredito b { color: #1e8449; }
+  .meta { color: #8a938f; font-size: 12px; margin-top: 10px; }
+</style>
+<div class="box">
+  <h1>N+1: ruim × bom</h1>
+  <p class="sub">Tempo total da página, em milissegundos — 10 execuções de cada, após aquecimento.</p>
+  <table>
+    <thead><tr><th>execução</th><th>ruim (31 queries)</th><th>bom (2 queries)</th><th>razão</th></tr></thead>
+    <tbody>
+<tr><td>1</td><td class='num bad'>33.2</td><td class='num good'>10.0</td><td class='num'>3.3×</td></tr>
+<tr><td>2</td><td class='num bad'>39.8</td><td class='num good'>9.7</td><td class='num'>4.1×</td></tr>
+<tr><td>3</td><td class='num bad'>39.5</td><td class='num good'>11.6</td><td class='num'>3.4×</td></tr>
+<tr><td>4</td><td class='num bad'>34.4</td><td class='num good'>16.8</td><td class='num'>2.0×</td></tr>
+<tr><td>5</td><td class='num bad'>37.4</td><td class='num good'>12.3</td><td class='num'>3.0×</td></tr>
+<tr><td>6</td><td class='num bad'>38.6</td><td class='num good'>10.2</td><td class='num'>3.8×</td></tr>
+<tr><td>7</td><td class='num bad'>37.9</td><td class='num good'>10.6</td><td class='num'>3.6×</td></tr>
+<tr><td>8</td><td class='num bad'>35.3</td><td class='num good'>9.8</td><td class='num'>3.6×</td></tr>
+<tr><td>9</td><td class='num bad'>38.5</td><td class='num good'>9.8</td><td class='num'>3.9×</td></tr>
+<tr><td>10</td><td class='num bad'>39.0</td><td class='num good'>10.9</td><td class='num'>3.6×</td></tr>
+    </tbody>
+    <tfoot>
+      <tr><td>média</td><td class="num bad">37.4</td><td class="num good">11.2</td><td class="num">3.3×</td></tr>
+      <tr><td>mediana</td><td class="num bad">38.2</td><td class="num good">10.4</td><td></td></tr>
+    </tfoot>
+  </table>
+  <p class="veredito">Mesma página, mesmo dado: a versão com <code>includes</code> ficou <b>3.3× mais rápida</b>.</p>
+  <p class="meta">Medido em 05/09/2026 08:51 · Rails em modo development · gerado por script/benchmark_n1.rb</p>
+</div>
+</html>
