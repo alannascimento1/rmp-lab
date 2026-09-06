@@ -21,7 +21,7 @@
 <h2>Cenarios</h2>
 <div class="scenarios">
   <div class="scenario">
-    <h3>1. N+1</h3>
+    <h3>1. Antipattern query N+1</h3>
     <p>Dezenas de <code>SELECT ... WHERE id = ?</code> duplicados viram 2 queries com <code>includes</code>.</p>
     <div class="pair">
       <%= link_to lab_posts_slow_index_path, class: "btn bad" do %>ruim <small>~100ms</small><% end %>
