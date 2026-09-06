@@ -1,0 +1,16 @@
+app/views/lab/posts/fast/index.html.erb
+  h_247d0bda06f7bb 1
+app/views/lab/posts/slow/index.html.erb
+  h_247d0bda06f7bb 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "b5df6b8913b3a68007131d32d60a79cc9cfb543e",
+  "prompts": {},
+  "humans": {
+    "h_247d0bda06f7bb": {
+      "author": "alan <nascimentoalankst@gmail.com>"
+    }
+  }
+}
