@@ -1,0 +1,24 @@
+db/seeds.rb
+  s_93ea2ba7d2a721::t_f4b9645fdf7187 19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "0f6ece1c279a8f885479eead9fe4335eca9c92cd",
+  "prompts": {},
+  "humans": {
+    "h_247d0bda06f7bb": {
+      "author": "alan <nascimentoalankst@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_93ea2ba7d2a721": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2568658a-6053-4988-9865-2dd6fa8a2213",
+        "model": "unknown"
+      },
+      "human_author": "alan <nascimentoalankst@gmail.com>"
+    }
+  }
+}
