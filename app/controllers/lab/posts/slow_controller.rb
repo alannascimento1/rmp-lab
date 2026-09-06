@@ -5,7 +5,7 @@ module Lab
     # No painel do profiler voce ve dezenas de linhas SQL identicas empilhadas,
     # e o contador de queries do badge explode.
     class SlowController < ApplicationController
-      PAGE_SIZE = 30
+      PAGE_SIZE = 50
 
       def index
         @posts = Post.recent.limit(PAGE_SIZE)

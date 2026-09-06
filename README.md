@@ -30,7 +30,7 @@ Abra http://localhost:3000. O badge do profiler aparece no canto superior direit
 
 | # | Rota lenta | Rota corrigida | O que observar |
 |---|---|---|---|
-| 1 | `/lab/posts/slow` | `/lab/posts/fast` | Dezenas de `SELECT ... WHERE id = ?` duplicados viram 2 queries com `includes`. ~100ms → ~30ms |
+| 1 | `/lab/posts/slow` | `/lab/posts/fast` | Dezenas de `SELECT ... WHERE id = ?` duplicados viram 2 queries com `includes`. ~60ms → ~10ms |
 | 2 | `/lab/post_rows/slow` | `/lab/post_rows/fast` | Uma linha de render por item na árvore vs. uma única linha. ~27ms → ~14ms |
 | 3 | `/lab/lookups/slow` | `/lab/lookups/fast` | Mesma consulta, mesma quantidade; só muda o índice. ~120ms → ~23ms |
 | 4 | `/lab/rankings/slow` | `/lab/rankings/fast` | Recarregue a versão com cache: o step continua lá, mas sem SQL embaixo. ~20ms → ~4ms |

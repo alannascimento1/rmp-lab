@@ -65,7 +65,7 @@ html = <<~HTML
     <h1>N+1: ruim × bom</h1>
     <p class="sub">Tempo total da página, em milissegundos — #{RUNS} execuções de cada, após aquecimento.</p>
     <table>
-      <thead><tr><th>execução</th><th>ruim (31 queries)</th><th>bom (2 queries)</th><th>razão</th></tr></thead>
+      <thead><tr><th>execução</th><th>ruim (51 queries)</th><th>bom (2 queries)</th><th>razão</th></tr></thead>
       <tbody>
   #{linhas}
       </tbody>
